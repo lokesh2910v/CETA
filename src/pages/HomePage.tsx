@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Layout } from '../components/Layout';
-import { BookOpen, Users, Calendar, Image as ImageIcon, Trophy } from 'lucide-react';
-
-import { useEffect, useRef } from "react";
-import Typed from "typed.js";
-
+import { BookOpen, Users, Calendar, Trophy } from 'lucide-react';
+import Typed from 'typed.js';
+import { motion } from 'framer-motion';
 
 export function HomePage() {
   const typedRef = useRef(null);
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["T.H.E ","Technova", "Pixel Fusion", "Sports and Culturals","Brain Masters"],
+      strings: ["T.H.E ", "Technova", "Pixel Fusion", "Sports and Culturals", "Brain Masters"],
       typeSpeed: 100,
       backSpeed: 50,
       backDelay: 1000,
@@ -26,186 +24,186 @@ export function HomePage() {
 
   return (
     <Layout>
-      <>
-        {/* Hero Section */}
-        <div className="relative w-full h-screen bg-blue-600 text-white flex items-center justify-center">
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <img
-              src="/images/90078629.jpg"
-              alt="Club Background"
-              className="w-full h-full object-cover opacity-50"
-            />
-          </div>
+      {/* Hero Section */}
+      <motion.div 
+        className="relative w-full h-screen bg-blue-600 text-white flex flex-col items-center justify-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}>
+        
+        {/* Logo Centered */}
+        <motion.img
+  src="/images/mainlogo.jpg"
+  alt="Club Logo"
+  className="w-48 h-48 mb-6 object-cover rounded-full shadow-lg"
+  initial={{ scale: 0 }}
+  animate={{ scale: 1.2 }}
+  whileHover={{ scale: 1.3 }}
+  transition={{ duration: 0.8 }}
+/>
 
-          {/* Content */}
-          <div className="relative text-center px-6">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Welcome to CETA</h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-              Empowering students to innovate, create, and lead in the world of technology.
-              Join us in our journey of learning and growth.
-            </p>
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">Welcome to CETA</h1>
+        <p className="text-xl md:text-2xl max-w-3xl text-center mx-auto">
+          Empowering students to innovate, create, and lead in the world of technology.
+        </p>
 
-            {/* Clubs Names Typing Effect */}
-            <div className="mt-6 text-2xl md:text-3xl font-semibold">
-              <span ref={typedRef}></span>
-            </div>
-          </div>
+        <div className="mt-6 text-3xl md:text-4xl font-semibold">
+          <span ref={typedRef}></span>
         </div>
-      </>
+      </motion.div>
 
-      <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-16">
-            Grow, Learn & Connect with CETA
-            </h2>
-          </div>
-
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <FeatureCard1
-              icon={<BookOpen className="h-8 w-8" />}
-              title="Workshops"
-              description="Regular technical workshops to enhance your skills"
-            />
-            <FeatureCard1
-              icon={<Users className="h-8 w-8" />}
-              title="Networking"
-              description="Connect with like-minded tech enthusiasts"
-            />
-            <FeatureCard1
-              icon={<Calendar className="h-8 w-8" />}
-              title="Events"
-              description="Exciting tech events and competitions"
-            />
-            <FeatureCard1
-              icon={<Trophy className="h-8 w-8" />}
-              title="Projects"
-              description="Hands-on experience with real-world projects"
-            />
-          </div>
-
-          </div>
-          </div>
       {/* Features Section */}
-      <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-16">
-              CETA CLUBS
-            </h2>
-          </div>
+      <motion.div 
+  className="py-24 bg-white"
+  initial={{ scale: 0.5, opacity: 0 }}
+  whileInView={{ scale: 1, opacity: 1 }}
+  transition={{ duration: 1, ease: "easeOut" }}>
 
-         
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
-       <FeatureCard 
-        image="/images/90078629.jpg" 
-        title="Technova" 
-        description="A club focused on technology, innovation, and emerging trends." 
-      />
-      <FeatureCard 
-        image="/images/90078629.jpg" 
-        title="Brain Masters" 
-        description="A club for logical reasoning, coding competitions, and problem-solving." 
-      />
-      <FeatureCard 
-        image="/images/90078629.jpg" 
-        title="Pixel Fusion" 
-        description="A creative hub for graphic design, UI/UX, and visual storytelling." 
-      />
-      <FeatureCard 
-        image="/images/90078629.jpg" 
-        title="Sports & Culturals" 
-        description="A vibrant club promoting sports, music, dance, and cultural activities." 
-      />
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <motion.div 
+      className="text-center"
+      initial={{ scale: 0.5, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 1, ease: "easeOut" }}>
+      <h2 className="text-3xl font-bold text-gray-900 mb-16">
+        Grow, Learn & Connect with CETA
+      </h2>
+    </motion.div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {[
+        { icon: <BookOpen className="h-8 w-8" />, title: "Workshops", description: "Technical workshops to enhance your skills." },
+        { icon: <Users className="h-8 w-8" />, title: "Networking", description: "Connect with like-minded tech enthusiasts." },
+        { icon: <Calendar className="h-8 w-8" />, title: "Events", description: "Exciting tech events and competitions." },
+        { icon: <Trophy className="h-8 w-8" />, title: "Projects", description: "Hands-on experience with real-world projects." }
+      ].map((item, index) => (
+        <motion.div 
+          key={index} 
+          initial={{ scale: 0.5, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2 * index, ease: "easeOut" }}>
+          <FeatureCard1 icon={item.icon} title={item.title} description={item.description} />
+        </motion.div>
+      ))}
     </div>
 
-        </div>
-      </div>
+  </div>
+</motion.div>
 
-      {/* About Section */}
-      <div className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                About Our Club
-              </h2>
-              <div className="prose prose-lg">
-                <p className="mb-4">
-                  Tech Innovators Club is a student-led organization dedicated to fostering
-                  innovation and technical excellence among students.
-                </p>
-                <p className="mb-4">
-                  Founded in 2020, we've grown into a vibrant community of tech enthusiasts,
-                  developers, and future leaders.
-                </p>
-                <p>
-                  Our mission is to provide hands-on learning experiences, industry exposure,
-                  and opportunities for personal growth in technology.
-                </p>
-              </div>
-            </div>
-            <div className="mt-12 lg:mt-0">
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
-                alt="Team Collaboration"
-                className="rounded-lg shadow-xl"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Stats Section */}
-      {/* <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            <StatCard number="500+" label="Active Members" />
-            <StatCard number="50+" label="Events Organized" />
-            <StatCard number="20+" label="Industry Partners" />
-            <StatCard number="100%" label="Learning Experience" />
-          </div>
+
+      {/* Clubs Section */}
+      <motion.div 
+  className="py-24 bg-gray-50"
+  initial={{ scale: 0.5, opacity: 0 }}
+  whileInView={{ scale: 1, opacity: 1 }}
+  transition={{ duration: 1, ease: "easeOut" }}>
+  
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <motion.div 
+      className="text-center"
+      initial={{ scale: 0.5, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 1, ease: "easeOut" }}>
+      <h2 className="text-3xl font-bold text-gray-900 mb-16">CETA CLUBS</h2>
+    </motion.div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
+      {[
+        { image: "/images/technova.jpg", title: "Technova", description: "A club focused on technology and innovation." },
+        { image: "/images/brainmasters.jpg", title: "Brain Masters", description: "A club for logical reasoning and coding competitions." },
+        { image: "/images/pixelfusion.jpg", title: "Pixel Fusion", description: "A creative hub for graphic design and UI/UX." },
+        { image: "/images/sports.jpg", title: "Sports & Culturals", description: "A club promoting sports, music, and cultural activities." }
+      ].map((club, index) => (
+        <motion.div 
+          key={index} 
+          initial={{ scale: 0.5, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.2 * index, ease: "easeOut" }}>
+          <FeatureCard image={club.image} title={club.title} description={club.description} />
+        </motion.div>
+      ))}
+    </div>
+
+  </div>
+</motion.div>
+
+
+
+<motion.div 
+  className="py-24 bg-gray-50"
+  initial={{ opacity: 0, scale: 0.85 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1.2, ease: "anticipate" }}>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+      
+      {/* Text Section */}
+      <motion.div 
+        initial={{ opacity: 0, x: -60 }} 
+        whileInView={{ opacity: 1, x: 0 }} 
+        transition={{ duration: 1.5, ease: "easeInOut" }}>
+        <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          About Our Club
+        </h2>
+        <div className="prose prose-lg">
+          <p className="mb-4">
+            Tech Innovators Club is a student-led organization dedicated to fostering
+            innovation and technical excellence among students.
+          </p>
+          <p className="mb-4">
+            Founded in 2020, we've grown into a vibrant community of tech enthusiasts,
+            developers, and future leaders.
+          </p>
+          <p>
+            Our mission is to provide hands-on learning experiences, industry exposure,
+            and opportunities for personal growth in technology.
+          </p>
         </div>
-      </div> */}
+      </motion.div>
+
+      {/* Image Section */}
+      <motion.div 
+        className="mt-12 lg:mt-0"
+        initial={{ opacity: 0, x: 60, scale: 0.95 }} 
+        whileInView={{ opacity: 1, x: 0, scale: 1 }} 
+        transition={{ duration: 1.5, ease: "easeInOut" }}>
+        <img
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
+          alt="Team Collaboration"
+          className="rounded-lg shadow-xl"
+        />
+      </motion.div>
+    </div>
+  </div>
+</motion.div>
+
     </Layout>
   );
 }
 
 function FeatureCard1({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-lg">
+    <motion.div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-lg"
+      whileHover={{ scale: 1.05 }}>
       <div className="text-blue-600 mb-4">{icon}</div>
       <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
       <p className="text-gray-600">{description}</p>
-    </div>
+    </motion.div>
   );
 }
 
 function FeatureCard({ image, title, description }: { image: string; title: string; description: string }) {
   return (
-    <div className="flex flex-col items-center bg-white shadow-lg rounded-lg overflow-hidden w-72">
-    {/* Increased Image Size */}
-    <img src={image} alt={title} className="w-full h-52 object-cover" />
-
-    {/* Title & Description in a White Box */}
-    <div className="p-5 text-center">
-      <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
-      <p className="text-gray-600 mt-2">{description}</p>
-    </div>
-  </div>
-  );
-}
-
-
-
-
-function StatCard({ number, label }: { number: string; label: string }) {
-  return (
-    <div className="p-6">
-      <div className="text-4xl font-bold text-blue-600 mb-2">{number}</div>
-      <div className="text-gray-600">{label}</div>
-    </div>
+    <motion.div className="flex flex-col items-center bg-white shadow-lg rounded-lg overflow-hidden w-72"
+      whileHover={{ scale: 1.05 }}>
+      <img src={image} alt={title} className="w-50 h-60 object-cover" />
+      <div className="p-5 text-center">
+        <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
+        <p className="text-gray-600 mt-2">{description}</p>
+      </div>
+    </motion.div>
   );
 }
