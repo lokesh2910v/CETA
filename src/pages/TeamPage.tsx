@@ -43,13 +43,13 @@ export function TeamPage() {
 
   return (
     <Layout>
-      <div className="px-4 md:px-8 lg:px-24 py-8">
+      <div className="px-4 py-8 md:px-8 lg:px-24">
         {/* Category Selection */}
         <div className="mb-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
+          <h2 className="mb-4 text-2xl font-extrabold text-gray-900 md:text-3xl">
             Meet Our Team
           </h2>
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+          <div className="flex flex-wrap gap-3 justify-center md:gap-4">
             {CATEGORIES.map((category) => (
               <button
                 key={category}
@@ -68,8 +68,9 @@ export function TeamPage() {
 
         {/* Team Members Grid */}
         {loading ? (
-          <div className="text-center py-12 text-gray-700">Loading team members...</div>
+          <div className="py-12 text-center text-gray-700">Loading team members...</div>
         ) : (
+<<<<<<< Updated upstream
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 p-6 animate-fade-up">
           {members.map((member) => (
             <div
@@ -85,6 +86,43 @@ export function TeamPage() {
                     className="w-full h-full object-cover"
                   />
                 </div>
+=======
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 animate-fade-up">
+            {members.map((member) => (
+              <div
+                key={member.id}
+                className="relative flex flex-col items-center bg-white rounded-xl shadow-lg p-6 w-full max-w-xs mx-auto h-[21rem] group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-l-4 border-blue-600"
+              >
+                {/* Circular Profile Image */}
+                <div className="overflow-hidden w-36 h-36 rounded-full border-4 border-gray-300 shadow-lg transition-all duration-300 sm:w-40 sm:h-40 group-hover:scale-110">
+                  <img
+                    src={member.image_url}
+                    alt={member.name}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+
+                {/* Name */}
+                <h3 className="mt-4 text-xl font-semibold text-center text-gray-900 sm:text-2xl">
+                  {member.name}
+                </h3>
+
+                {/* Role */}
+                <p className="mb-6 text-sm text-center text-gray-600 sm:text-lg">{member.role}</p>
+
+                {/* LinkedIn Button (No Overlapping) */}
+                {member.linkedin_url && (
+                  <a
+                    href={member.linkedin_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-6 px-4 py-2 text-white bg-blue-600 rounded-full opacity-0 transition-all duration-500 group-hover:opacity-100 hover:bg-blue-700"
+                  >
+                    <Linkedin className="inline-block mr-2 w-5 h-5" />
+                    LinkedIn
+                  </a>
+                )}
+>>>>>>> Stashed changes
               </div>
     
               {/* Name */}
