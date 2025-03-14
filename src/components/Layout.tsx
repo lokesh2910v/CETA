@@ -100,70 +100,71 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
 
       {/* Footer */}
-      <footer className="bg-white border-t">
-        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-gray-700">
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-gray-900">CETA</h3>
-              <p className="text-sm">
-                Inspiring innovation, collaboration, and leadership in the tech world.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-medium text-gray-900 mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-sm">
-                {navigation.map((item) => (
-                  <li key={item.name}>
-                    <Link to={item.href} className="hover:text-blue-600 transition-colors">
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link
-                    to="/admin"
-                    className="hover:text-blue-600 transition-colors flex items-center"
-                  >
-                    <Settings className="h-5 w-5 mr-2" />
-                    Admin Panel
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium text-gray-900 mb-4">Contact Info</h4>
-              <ul className="space-y-2 text-sm">
-                <li className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-gray-500" /> 123 University Ave, City
-                </li>
-                <li className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-gray-500" /> contact@techclub.com
-                </li>
-                <li className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-gray-500" /> (123) 456-7890
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-medium text-gray-900 mb-4">Follow Us</h4>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-500 hover:text-blue-600 transition-colors">
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-gray-500 hover:text-blue-600 transition-colors">
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-gray-500 hover:text-blue-600 transition-colors">
-                  <Twitter className="h-5 w-5" />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-300 text-center">
-            <p className="text-sm text-gray-500">© 2025 CETA. All rights reserved.</p>
-          </div>
+      <footer className="bg-gray-50 border-t border-gray-200">
+  <div className="max-w-7xl mx-auto py-12 px-6 sm:px-8 lg:px-10">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-gray-700">
+      <div className="space-y-4">
+        <h3 className="text-2xl font-bold text-gray-900">CETA</h3>
+        <p className="text-sm leading-relaxed">
+          Inspiring innovation, collaboration, and leadership in the tech world.
+        </p>
+      </div>
+      <div>
+        <h4 className="text-lg font-semibold text-gray-900 mb-4">Quick Links</h4>
+        <ul className="space-y-3 text-sm">
+          {navigation.map((item) => (
+            <li key={item.name}>
+              <Link to={item.href} className="hover:text-blue-600 transition duration-300">
+                {item.name}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <Link
+              to="/admin"
+              className="hover:text-blue-600 transition duration-300 flex items-center"
+            >
+              <Settings className="h-5 w-5 mr-2" />
+              Admin Panel
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4 className="text-lg font-semibold text-gray-900 mb-4">Contact Info</h4>
+        <ul className="space-y-3 text-sm">
+          <li className="flex items-center gap-2">
+            <MapPin className="h-5 w-5 text-gray-500" /> 123 University Ave, City
+          </li>
+          <li className="flex items-center gap-2">
+            <Mail className="h-5 w-5 text-gray-500" /> contact@techclub.com
+          </li>
+          <li className="flex items-center gap-2">
+            <Phone className="h-5 w-5 text-gray-500" /> (123) 456-7890
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h4 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h4>
+        <div className="flex space-x-5">
+          <a href="#" className="text-gray-500 hover:text-blue-600 transition duration-300">
+            <Facebook className="h-6 w-6" />
+          </a>
+          <a href="#" className="text-gray-500 hover:text-blue-600 transition duration-300">
+            <Instagram className="h-6 w-6" />
+          </a>
+          <a href="#" className="text-gray-500 hover:text-blue-600 transition duration-300">
+            <Twitter className="h-6 w-6" />
+          </a>
         </div>
-      </footer>
+      </div>
+    </div>
+    <div className="mt-10 pt-6 border-t border-gray-300 text-center">
+      <p className="text-sm text-gray-500">© 2025 CETA. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
     </div>
   );
 }
