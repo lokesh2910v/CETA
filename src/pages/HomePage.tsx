@@ -150,16 +150,13 @@ export function HomePage() {
         </h2>
         <div className="prose prose-lg">
           <p className="mb-4">
-            Tech Innovators Club is a student-led organization dedicated to fostering
-            innovation and technical excellence among students.
+          The Computer Engineers Technical Association (CETA), established in 2000 at Sree Vidyanikethan Engineering College and later carried forward by Mohan Babu University’s CSE students.
           </p>
           <p className="mb-4">
-            Founded in 2020, we've grown into a vibrant community of tech enthusiasts,
-            developers, and future leaders.
+          It is a dynamic hub for innovation, collaboration, and skill development. CETA empowers students by providing hands-on experience, industry exposure, and opportunities to lead and participate in hackathons, tech fests, coding challenges, and networking events.
           </p>
           <p>
-            Our mission is to provide hands-on learning experiences, industry exposure,
-            and opportunities for personal growth in technology.
+          It fosters creativity and excellence through a mix of technical, non-technical, and extracurricular activities, shaping the next generation of tech leaders.
           </p>
         </div>
       </motion.div>
@@ -171,9 +168,9 @@ export function HomePage() {
         whileInView={{ opacity: 1, x: 0, scale: 1 }} 
         transition={{ duration: 1.5, ease: "easeInOut" }}>
         <img
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80"
+          src="/images/mainlogo.jpg"
           alt="Team Collaboration"
-          className="rounded-lg shadow-xl"
+          className="rounded-lg shadow-xl p-5"
         />
       </motion.div>
     </div>
