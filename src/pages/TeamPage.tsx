@@ -30,8 +30,8 @@ export function TeamPage() {
         .from('team_members')
         .select('*')
         .eq('category', selectedCategory)
-        // .order('name');
-
+        .order('created_at', { ascending: true }); // Oldest first
+  
       if (error) throw error;
       setMembers(data || []);
     } catch (error) {
@@ -40,6 +40,7 @@ export function TeamPage() {
       setLoading(false);
     }
   }
+  
 
   return (
     <Layout>
@@ -74,19 +75,19 @@ export function TeamPage() {
           {members.map((member) => (
             <div
               key={member.id}
-              className="relative flex flex-col items-center bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl p-6 w-full max-w-xs mx-auto h-[21rem] group transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 border border-gray-200"
+              className="relative flex flex-col items-center bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl p-6 w-full max-w-xs mx-auto h-[23rem] group transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 border border-gray-200"
             >
               {/* Circular Profile Image with a Gradient Border */}
-              <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg transition-transform duration-300 group-hover:scale-105">
-                <div className="w-full h-full rounded-full overflow-hidden bg-white border-4 border-gray-200">
-                  <img
-                    src={member.image_url}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-    
+              <div className="w-40 h-40 sm:w-44 sm:h-44 rounded-full p-1 bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg transition-transform duration-300 group-hover:scale-105">
+  <div className="w-full h-full rounded-full overflow-hidden bg-white border-4 border-gray-200">
+    <img
+      src={member.image_url}
+      alt={member.name}
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
+
               {/* Name */}
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mt-4 text-center tracking-wide">
                 {member.name}
