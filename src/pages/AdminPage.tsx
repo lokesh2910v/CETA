@@ -74,7 +74,7 @@ export function AdminPage() {
           const { data: teamData } = await supabase
             .from('team_members')
             .select('*')
-            .order('name');
+            .order('created_at', { ascending: false });
           setTeamMembers(teamData || []);
           break;
           
@@ -281,8 +281,8 @@ export function AdminPage() {
                   required
                 >
                   <option value="">Select Category</option>
-                  <option value="Faculty Advisors">Faculty</option>
-                  <option value="Core Coordinators">Core Members</option>
+                  <option value="Faculty">Faculty</option>
+                  <option value="Core Members">Core Members</option>
                   <option value="Club Members">Club Members</option>
                 </select>
                 <input
