@@ -43,16 +43,18 @@ export function TeamPage() {
 
   return (
     <Layout>
-      <div className="px-6 md:px-12 lg:px-24 py-8">
+      <div className="px-4 md:px-8 lg:px-24 py-8">
         {/* Category Selection */}
-        <div className="mb-8 text-center">
-          <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Meet Our Team</h2>
-          <div className="flex flex-wrap justify-center gap-4">
+        <div className="mb-6 text-center">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4">
+            Meet Our Team
+          </h2>
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
             {CATEGORIES.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full text-lg font-medium transition-all duration-300 ${
+                className={`px-5 py-2 text-sm md:text-lg rounded-full font-medium transition-all duration-300 ${
                   selectedCategory === category
                     ? 'bg-blue-600 text-white shadow-lg scale-105'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -68,28 +70,30 @@ export function TeamPage() {
         {loading ? (
           <div className="text-center py-12 text-gray-700">Loading team members...</div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-up">
             {members.map((member) => (
               <div
                 key={member.id}
-                className="relative flex flex-col items-center bg-white rounded-xl shadow-lg p-6 w-80 h-96 group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-l-4 border-blue-600"
+                className="relative flex flex-col items-center bg-white rounded-xl shadow-lg p-6 w-full max-w-xs mx-auto h-[21rem] group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-l-4 border-blue-600"
               >
                 {/* Circular Profile Image */}
-                <div className="w-52 h-52 rounded-full overflow-hidden border-4 border-gray-300 shadow-lg transition-all duration-300 group-hover:scale-110">
+                <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-gray-300 shadow-lg transition-all duration-300 group-hover:scale-110">
                   <img
                     src={member.image_url}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
 
-                {/* Name (Always Visible) */}
-                <h3 className="text-2xl font-semibold text-gray-900 mt-4">{member.name}</h3>
+                {/* Name */}
+                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mt-4 text-center">
+                  {member.name}
+                </h3>
 
-                {/* Role (Below Name) */}
-                <p className="text-gray-600 text-lg">{member.role}</p>
+                {/* Role */}
+                <p className="text-gray-600 text-sm sm:text-lg text-center mb-6">{member.role}</p>
 
-                {/* Hidden LinkedIn Button (Appear on Hover) */}
+                {/* LinkedIn Button (No Overlapping) */}
                 {member.linkedin_url && (
                   <a
                     href={member.linkedin_url}

@@ -112,7 +112,7 @@ export function GalleryPage() {
             />
             <div className="text-left text-white mt-4 p-4">
               <h3 className="text-2xl font-bold">{enlargedImage.title}</h3>
-              {enlargedImage.description && <p className="mt-2">{enlargedImage.description}</p>}
+              {/* {enlargedImage.description && <p className="mt-2">{enlargedImage.description}</p>} */}
             </div>
           </div>
         </div>

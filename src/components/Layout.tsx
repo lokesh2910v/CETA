@@ -104,9 +104,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <div className="max-w-7xl mx-auto py-14 px-6 sm:px-10 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-gray-800">
           <div className="space-y-5">
-            <h3 className="text-3xl font-bold text-gray-900">CETA</h3>
+            <h3 className="text-3xl font-bold text-gray-900">CETA – Innovate, Inspire, Lead!</h3>
             <p className="text-sm leading-relaxed text-gray-700">
-              Inspiring innovation, collaboration, and leadership in the tech world.
+            
+            Empowering the next generation of tech enthusiasts through innovation, collaboration, and hands-on learning. Where passion meets technology, and ideas transform into reality!"
             </p>
           </div>
           <div>
@@ -134,10 +135,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <h4 className="text-xl font-semibold text-gray-900 mb-5">Contact Info</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-3">
-                <MapPin className="h-5 w-5 text-gray-600" /> 123 University Ave, City
+                <MapPin className="h-5 w-5 text-gray-600" />Mohan Babu University,Tirupathi
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-gray-600" /> contact@techclub.com
+                <Mail className="h-5 w-5 text-gray-600" /> ceta@mbu.asia
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-gray-600" /> (123) 456-7890
