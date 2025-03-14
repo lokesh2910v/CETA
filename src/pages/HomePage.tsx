@@ -110,26 +110,26 @@ export function HomePage() {
       <h2 className="text-3xl font-bold text-gray-900 mb-16">CETA CLUBS</h2>
     </motion.div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
-      {[
-        { image: "/images/technova.jpg", title: "Technova", description: "A club focused on technology and innovation." },
-        { image: "/images/brainmasters.jpg", title: "Brain Masters", description: "A club for logical reasoning and coding competitions." },
-        { image: "/images/pixelfusion.jpg", title: "Pixel Fusion", description: "A creative hub for graphic design and UI/UX." },
-        { image: "/images/sports.jpg", title: "Sports & Culturals", description: "A club promoting sports, music, and cultural activities." }
-      ].map((club, index) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 justify-center">
+      {[  
+        { image: "/images/technova.jpg", title: "Technova", description: "A club focused on technology and innovation." },  
+        { image: "/images/brainmasters.jpg", title: "Brain Masters", description: "A club for logical reasoning and coding competitions." },  
+        { image: "/images/pixelfusion.jpg", title: "Pixel Fusion", description: "A creative hub for graphic design and UI/UX." },  
+        { image: "/images/sports.jpg", title: "Sports & Culturals", description: "A club promoting sports, music, and cultural activities." }  
+      ].map((club, index) => (  
         <motion.div 
           key={index} 
+          className="flex justify-center"
           initial={{ scale: 0.5, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 * index, ease: "easeOut" }}>
           <FeatureCard image={club.image} title={club.title} description={club.description} />
         </motion.div>
-      ))}
+      ))}  
     </div>
 
   </div>
 </motion.div>
-
 
 
 <motion.div 
