@@ -12,7 +12,7 @@ type TeamMember = {
   linkedin_url: string | null;
 };
 
-const CATEGORIES = ["Faculty Advisors", "Core Coordinators", "Club Members"];
+const CATEGORIES = ["FACULTY", "CORE MEMBERS", "CLUB COORDINATORS"];
 
 export function TeamPage() {
   const [members, setMembers] = useState<TeamMember[]>([]);
@@ -70,68 +70,30 @@ export function TeamPage() {
         {loading ? (
           <div className="py-12 text-center text-gray-700">Loading team members...</div>
         ) : (
-<<<<<<< Updated upstream
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 p-6 animate-fade-up">
+          <div className="grid grid-cols-1 gap-8 p-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 animate-fade-up">
           {members.map((member) => (
             <div
               key={member.id}
               className="relative flex flex-col items-center bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl p-6 w-full max-w-xs mx-auto h-[21rem] group transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 border border-gray-200"
             >
               {/* Circular Profile Image with a Gradient Border */}
-              <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg transition-transform duration-300 group-hover:scale-105">
-                <div className="w-full h-full rounded-full overflow-hidden bg-white border-4 border-gray-200">
+              <div className="p-1 w-32 h-32 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full shadow-lg transition-transform duration-300 sm:w-45 sm:h-45 group-hover:scale-105">
+                <div className="overflow-hidden w-full h-full bg-white rounded-full border-4 border-gray-200">
                   <img
                     src={member.image_url}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="object-cover w-full h-full"
                   />
                 </div>
-=======
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 animate-fade-up">
-            {members.map((member) => (
-              <div
-                key={member.id}
-                className="relative flex flex-col items-center bg-white rounded-xl shadow-lg p-6 w-full max-w-xs mx-auto h-[21rem] group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-l-4 border-blue-600"
-              >
-                {/* Circular Profile Image */}
-                <div className="overflow-hidden w-36 h-36 rounded-full border-4 border-gray-300 shadow-lg transition-all duration-300 sm:w-40 sm:h-40 group-hover:scale-110">
-                  <img
-                    src={member.image_url}
-                    alt={member.name}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
-
-                {/* Name */}
-                <h3 className="mt-4 text-xl font-semibold text-center text-gray-900 sm:text-2xl">
-                  {member.name}
-                </h3>
-
-                {/* Role */}
-                <p className="mb-6 text-sm text-center text-gray-600 sm:text-lg">{member.role}</p>
-
-                {/* LinkedIn Button (No Overlapping) */}
-                {member.linkedin_url && (
-                  <a
-                    href={member.linkedin_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute bottom-6 px-4 py-2 text-white bg-blue-600 rounded-full opacity-0 transition-all duration-500 group-hover:opacity-100 hover:bg-blue-700"
-                  >
-                    <Linkedin className="inline-block mr-2 w-5 h-5" />
-                    LinkedIn
-                  </a>
-                )}
->>>>>>> Stashed changes
               </div>
     
               {/* Name */}
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mt-4 text-center tracking-wide">
+              <h3 className="mt-4 text-lg font-bold tracking-wide text-center text-gray-900 sm:text-xl">
                 {member.name}
               </h3>
     
               {/* Role */}
-              <p className="text-gray-600 text-sm sm:text-base text-center mb-6">
+              <p className="mb-6 text-sm text-center text-gray-600 sm:text-base">
                 {member.role}
               </p>
     
@@ -141,7 +103,7 @@ export function TeamPage() {
                   href={member.linkedin_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute bottom-6 bg-blue-600 text-white px-4 py-2 rounded-full flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 hover:bg-blue-700 shadow-md"
+                  className="flex absolute bottom-6 gap-2 items-center px-4 py-2 text-white bg-blue-600 rounded-full shadow-md opacity-0 transition-all duration-500 group-hover:opacity-100 hover:bg-blue-700"
                 >
                   <Linkedin className="w-5 h-5" />
                   LinkedIn
