@@ -30,7 +30,7 @@ export function TeamPage() {
         .from('team_members')
         .select('*')
         .eq('category', selectedCategory)
-        .order('name');
+        // .order('name');
 
       if (error) throw error;
       setMembers(data || []);
