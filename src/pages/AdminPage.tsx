@@ -281,8 +281,8 @@ export function AdminPage() {
                   required
                 >
                   <option value="">Select Category</option>
-                  <option value="Faculty Advisors">Faculty Advisors</option>
-                  <option value="Core Coordinators">Core Coordinators</option>
+                  <option value="Faculty Advisors">Faculty</option>
+                  <option value="Core Coordinators">Core Members</option>
                   <option value="Club Members">Club Members</option>
                 </select>
                 <input

@@ -12,11 +12,11 @@ type TeamMember = {
   linkedin_url: string | null;
 };
 
-const CATEGORIES = ["Faculty Advisors", "Core Coordinators", "Club Members"];
+const CATEGORIES = ["Faculty", "Core Members", "Club Members"];
 
 export function TeamPage() {
   const [members, setMembers] = useState<TeamMember[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string>("Faculty Advisors");
+  const [selectedCategory, setSelectedCategory] = useState<string>("Faculty");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export function TeamPage() {
               className="relative flex flex-col items-center bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl p-6 w-full max-w-xs mx-auto h-[23rem] group transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 border border-gray-200"
             >
               {/* Circular Profile Image with a Gradient Border */}
-              <div className="w-40 h-40 sm:w-44 sm:h-44 rounded-full p-1 bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg transition-transform duration-300 group-hover:scale-105">
+              <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full p-1 bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg transition-transform duration-300 group-hover:scale-105">
   <div className="w-full h-full rounded-full overflow-hidden bg-white border-4 border-gray-200">
     <img
       src={member.image_url}
