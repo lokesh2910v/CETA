@@ -157,3 +157,4 @@ export function EventsPage() {
     </Layout>
   );
 }
+
