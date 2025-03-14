@@ -124,29 +124,30 @@ export function EventsPage() {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-2 pb-5">
-            {event.registration_form_url && (
-              <a
-                href={event.registration_form_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 bg-blue-600 text-white text-sm px-3 py-1 rounded-md text-center hover:bg-blue-700 transition"
-              >
-                Register
-              </a>
-            )}
-            {event.whatsapp_group_url && (
-              <a
-                href={event.whatsapp_group_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 bg-green-600 text-white text-sm px-3 py-1 rounded-md text-center hover:bg-green-700 transition"
-              >
-                <Users className="inline-block w-6 h-6 mr-1" />
-                Join Group
-              </a>
-            )}
-          </div>
+          <div className="flex flex-wrap gap-2 pt-2 pb-5 w-full">
+  {event.registration_form_url && (
+    <a
+      href={event.registration_form_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-1 bg-blue-600 text-white text-sm px-3 py-2 rounded-md text-center hover:bg-blue-700 transition"
+    >
+      Register
+    </a>
+  )}
+  {event.whatsapp_group_url && (
+    <a
+      href={event.whatsapp_group_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-1 bg-green-600 text-white text-sm px-3 py-2 rounded-md text-center hover:bg-green-700 transition"
+    >
+      Join Group
+    </a>
+  )}
+</div>
+
+
         </div>
       </div>
     ))}
