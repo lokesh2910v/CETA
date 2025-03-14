@@ -70,44 +70,48 @@ export function TeamPage() {
         {loading ? (
           <div className="text-center py-12 text-gray-700">Loading team members...</div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-up">
-            {members.map((member) => (
-              <div
-                key={member.id}
-                className="relative flex flex-col items-center bg-white rounded-xl shadow-lg p-6 w-full max-w-xs mx-auto h-[21rem] group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-l-4 border-blue-600"
-              >
-                {/* Circular Profile Image */}
-                <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-gray-300 shadow-lg transition-all duration-300 group-hover:scale-110">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8 p-6 animate-fade-up">
+          {members.map((member) => (
+            <div
+              key={member.id}
+              className="relative flex flex-col items-center bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl p-6 w-full max-w-xs mx-auto h-[21rem] group transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 border border-gray-200"
+            >
+              {/* Circular Profile Image with a Gradient Border */}
+              <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg transition-transform duration-300 group-hover:scale-105">
+                <div className="w-full h-full rounded-full overflow-hidden bg-white border-4 border-gray-200">
                   <img
                     src={member.image_url}
                     alt={member.name}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-
-                {/* Name */}
-                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 mt-4 text-center">
-                  {member.name}
-                </h3>
-
-                {/* Role */}
-                <p className="text-gray-600 text-sm sm:text-lg text-center mb-6">{member.role}</p>
-
-                {/* LinkedIn Button (No Overlapping) */}
-                {member.linkedin_url && (
-                  <a
-                    href={member.linkedin_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute bottom-6 bg-blue-600 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 hover:bg-blue-700"
-                  >
-                    <Linkedin className="inline-block w-5 h-5 mr-2" />
-                    LinkedIn
-                  </a>
-                )}
               </div>
-            ))}
-          </div>
+    
+              {/* Name */}
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mt-4 text-center tracking-wide">
+                {member.name}
+              </h3>
+    
+              {/* Role */}
+              <p className="text-gray-600 text-sm sm:text-base text-center mb-6">
+                {member.role}
+              </p>
+    
+              {/* LinkedIn Button */}
+              {member.linkedin_url && (
+                <a
+                  href={member.linkedin_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-6 bg-blue-600 text-white px-4 py-2 rounded-full flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 hover:bg-blue-700 shadow-md"
+                >
+                  <Linkedin className="w-5 h-5" />
+                  LinkedIn
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
         )}
       </div>
     </Layout>
