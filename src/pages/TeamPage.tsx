@@ -12,7 +12,7 @@ type TeamMember = {
   linkedin_url: string | null;
 };
 
-const CATEGORIES = ["FACULTY", "CORE MEMBERS", "CLUB CO-ORDINATORS"];
+const CATEGORIES = ["Faculty", "Core Members", "Club Members"];
 
 export function TeamPage() {
   const [members, setMembers] = useState<TeamMember[]>([]);
