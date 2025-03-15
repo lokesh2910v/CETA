@@ -33,7 +33,7 @@ export function HomePage() {
         
         {/* Logo Centered */}
         <motion.img
-  src="/images/mainlogo.jpg"
+  src="https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/mainlogo.jpg"
   alt="Club Logo"
   className="w-48 h-48 mb-6 object-cover rounded-full shadow-lg"
   initial={{ scale: 0 }}
@@ -112,10 +112,10 @@ export function HomePage() {
 
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 justify-center">
       {[  
-        { image: "/images/technova.jpg", title: "Technova", description: "A club focused on technology and innovation." },  
-        { image: "/images/brainmasters.jpg", title: "Brain Masters", description: "A club for logical reasoning and coding competitions." },  
-        { image: "/images/pixelfusion.jpg", title: "Pixel Fusion", description: "A creative hub for graphic design and UI/UX." },  
-        { image: "/images/sports.jpg", title: "Sports & Culturals", description: "A club promoting sports, music, and cultural activities." }  
+        { image: "https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/technova.jpg", title: "Technova", description: "A club focused on technology and innovation." },  
+        { image: "https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/brainmasters.jpg", title: "Brain Masters", description: "A club for logical reasoning and coding competitions." },  
+        { image: "https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/pixelfusion.jpg", title: "Pixel Fusion", description: "A creative hub for graphic design and UI/UX." },  
+        { image: "https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/sports.jpg", title: "Sports & Culturals", description: "A club promoting sports, music, and cultural activities." }  
       ].map((club, index) => (  
         <motion.div 
           key={index} 
