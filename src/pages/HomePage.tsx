@@ -168,7 +168,7 @@ export function HomePage() {
         whileInView={{ opacity: 1, x: 0, scale: 1 }} 
         transition={{ duration: 1.5, ease: "easeInOut" }}>
         <img
-          src="/images/mainlogo.jpg"
+          src="https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/mainlogo.jpg"
           alt="Team Collaboration"
           className="rounded-lg shadow-xl p-5"
         />
