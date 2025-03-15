@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
-import { Trash2, Edit, Plus, LogOut } from 'lucide-react';
+import { Trash2, Edit, LogOut } from 'lucide-react';
 
 type Event = {
   id: string;
@@ -149,13 +149,13 @@ export function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-100">
       <div className="bg-white shadow">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
           <button
             onClick={handleLogout}
-            className="flex items-center text-gray-600 hover:text-gray-900"
+            className="flex items-center text-gray-600 hover:text-gray-900 transition duration-200"
           >
             <LogOut className="w-5 h-5 mr-2" />
             Logout
@@ -165,30 +165,17 @@ export function AdminPage() {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex space-x-4 mb-8">
-          <button
-            onClick={() => setActiveSection('events')}
-            className={`px-4 py-2 rounded-lg ${
-              activeSection === 'events' ? 'bg-blue-600 text-white' : 'bg-gray-200'
-            }`}
-          >
-            Events
-          </button>
-          <button
-            onClick={() => setActiveSection('team')}
-            className={`px-4 py-2 rounded-lg ${
-              activeSection === 'team' ? 'bg-blue-600 text-white' : 'bg-gray-200'
-            }`}
-          >
-            Team
-          </button>
-          <button
-            onClick={() => setActiveSection('gallery')}
-            className={`px-4 py-2 rounded-lg ${
-              activeSection === 'gallery' ? 'bg-blue-600 text-white' : 'bg-gray-200'
-            }`}
-          >
-            Gallery
-          </button>
+          {['events', 'team', 'gallery'].map(section => (
+            <button
+              key={section}
+              onClick={() => setActiveSection(section as Section)}
+              className={`px-4 py-2 rounded-lg transition duration-200 ${
+                activeSection === section ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-800'
+              }`}
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </button>
+          ))}
         </div>
 
         {/* Add/Edit Form */}
@@ -201,13 +188,13 @@ export function AdminPage() {
                   placeholder="Title"
                   value={formData.title || ''}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <select
                   value={formData.category || ''}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 >
                   <option value="">Select Category</option>
@@ -221,14 +208,14 @@ export function AdminPage() {
                   placeholder="Thumbnail URL"
                   value={formData.thumbnail_url || ''}
                   onChange={(e) => setFormData({ ...formData, thumbnail_url: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
                   type="datetime-local"
                   value={formData.date_time?.slice(0, 16) || ''}
                   onChange={(e) => setFormData({ ...formData, date_time: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
@@ -236,7 +223,7 @@ export function AdminPage() {
                   placeholder="Venue"
                   value={formData.venue || ''}
                   onChange={(e) => setFormData({ ...formData, venue: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
@@ -244,14 +231,14 @@ export function AdminPage() {
                   placeholder="Registration Form URL"
                   value={formData.registration_form_url || ''}
                   onChange={(e) => setFormData({ ...formData, registration_form_url: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <input
                   type="url"
                   placeholder="WhatsApp Group URL"
                   value={formData.whatsapp_group_url || ''}
                   onChange={(e) => setFormData({ ...formData, whatsapp_group_url: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </>
             )}
@@ -263,7 +250,7 @@ export function AdminPage() {
                   placeholder="Name"
                   value={formData.name || ''}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
@@ -271,13 +258,13 @@ export function AdminPage() {
                   placeholder="Role"
                   value={formData.role || ''}
                   onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <select
                   value={formData.category || ''}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 >
                   <option value="">Select Category</option>
@@ -290,7 +277,7 @@ export function AdminPage() {
                   placeholder="Image URL"
                   value={formData.image_url || ''}
                   onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <input
@@ -298,7 +285,7 @@ export function AdminPage() {
                   placeholder="LinkedIn URL"
                   value={formData.linkedin_url || ''}
                   onChange={(e) => setFormData({ ...formData, linkedin_url: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </>
             )}
@@ -310,13 +297,13 @@ export function AdminPage() {
                   placeholder="Title"
                   value={formData.title || ''}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <select
                   value={formData.category || ''}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 >
                   <option value="">Select Category</option>
@@ -330,14 +317,14 @@ export function AdminPage() {
                   placeholder="Image URL"
                   value={formData.image_url || ''}
                   onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
                 <textarea
                   placeholder="Description"
                   value={formData.description || ''}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   rows={3}
                 />
               </>
@@ -347,7 +334,7 @@ export function AdminPage() {
           <div className="mt-6 flex justify-end">
             <button
               type="submit"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-200"
             >
               {isEditing ? 'Update' : 'Add'} {activeSection.slice(0, -1)}
             </button>
@@ -389,7 +376,7 @@ export function AdminPage() {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {activeSection === 'events' && events.map((event) => (
-                  <tr key={event.id}>
+                  <tr key={event.id} className="hover:bg-gray-100 transition duration-200">
                     <td className="px-6 py-4 whitespace-nowrap">{event.title}</td>
                     <td className="px-6 py-4 whitespace-nowrap">{event.category}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -399,13 +386,13 @@ export function AdminPage() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <button
                         onClick={() => handleEdit(event)}
-                        className="text-blue-600 hover:text-blue-800 mr-4"
+                        className="text-blue-600 hover:text-blue-800 mr-4 transition duration-200"
                       >
                         <Edit className="w-5 h-5" />
                       </button>
                       <button
                         onClick={() => handleDelete(event.id)}
-                        className="text-red-600 hover:text-red-800"
+                        className="text-red-600 hover:text-red-800 transition duration-200"
                       >
                         <Trash2 className="w-5 h-5" />
                       </button>
@@ -414,20 +401,20 @@ export function AdminPage() {
                 ))}
 
                 {activeSection === 'team' && teamMembers.map((member) => (
-                  <tr key={member.id}>
+                  <tr key={member.id} className="hover:bg-gray-100 transition duration-200">
                     <td className="px-6 py-4 whitespace-nowrap">{member.name}</td>
                     <td className="px-6 py-4 whitespace-nowrap">{member.role}</td>
                     <td className="px-6 py-4 whitespace-nowrap">{member.category}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <button
                         onClick={() => handleEdit(member)}
-                        className="text-blue-600 hover:text-blue-800 mr-4"
+                        className="text-blue-600 hover:text-blue-800 mr-4 transition duration-200"
                       >
                         <Edit className="w-5 h-5" />
                       </button>
                       <button
                         onClick={() => handleDelete(member.id)}
-                        className="text-red-600 hover:text-red-800"
+                        className="text-red-600 hover:text-red-800 transition duration-200"
                       >
                         <Trash2 className="w-5 h-5" />
                       </button>
@@ -436,20 +423,20 @@ export function AdminPage() {
                 ))}
 
                 {activeSection === 'gallery' && galleryImages.map((image) => (
-                  <tr key={image.id}>
+                  <tr key={image.id} className="hover:bg-gray-100 transition duration-200">
                     <td className="px-6 py-4 whitespace-nowrap">{image.title}</td>
                     <td className="px-6 py-4 whitespace-nowrap">{image.category}</td>
                     <td className="px-6 py-4 whitespace-nowrap">{image.description}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <button
                         onClick={() => handleEdit(image)}
-                        className="text-blue-600 hover:text-blue-800 mr-4"
+                        className="text-blue-600 hover:text-blue-800 mr-4 transition duration-200"
                       >
                         <Edit className="w-5 h-5" />
                       </button>
                       <button
                         onClick={() => handleDelete(image.id)}
-                        className="text-red-600 hover:text-red-800"
+                        className="text-red-600 hover:text-red-800 transition duration-200"
                       >
                         <Trash2 className="w-5 h-5" />
                       </button>
