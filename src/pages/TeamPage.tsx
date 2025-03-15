@@ -111,8 +111,8 @@ export function TeamPage() {
                 </a>
               )}
             </div>
-          ))}
-        </div>
+      ))}
+    </div>
         )}
       </div>
     </Layout>
