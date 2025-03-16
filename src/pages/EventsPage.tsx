@@ -52,7 +52,7 @@ export function EventsPage() {
   return (
     <Layout>
     {/* Hero Section */}
-<div className="relative w-full h- flex items-center justify-center bg-cover bg-center" 
+<div className="relative w-full h-screen flex items-center justify-center bg-cover bg-center" 
   style={{ backgroundImage: "url('/images/eventpage.jpg')" }}>
   <div className="absolute inset-0 bg-black/70"></div> {/* Overlay */}
   <div className="relative text-center text-white flex flex-col items-center">
