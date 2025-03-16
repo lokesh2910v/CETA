@@ -26,11 +26,12 @@ export function HomePage() {
     <Layout>
       {/* Hero Section */}
       <motion.div 
-        className="relative w-full h-screen bg-blue-600 text-white flex flex-col items-center justify-center"
+        className="relative w-full h-screen bg-blue-600 bg-[url('/images/cetahome.jpg')] bg-cover bg-center text-white flex flex-col items-center justify-center"
+
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}>
-        
+        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
         {/* Logo Centered */}
         <motion.img
   src="/images/mainlogo.jpg"
@@ -42,14 +43,15 @@ export function HomePage() {
   transition={{ duration: 0.8 }}
 />
 
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">Welcome to CETA</h1>
-        <p className="text-xl md:text-2xl max-w-3xl text-center mx-auto">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 z-10">Welcome to CETA</h1>
+        <p className="text-xl md:text-2xl max-w-3xl text-center mx-auto z-10">
           Empowering students to innovate, create, and lead in the world of technology.
         </p>
 
-        <div className="mt-6 text-3xl md:text-4xl font-semibold">
+        <div className="mt-6 text-3xl md:text-4xl font-semibold z-10">
           <span ref={typedRef}></span>
         </div>
+       
       </motion.div>
 
       {/* Features Section */}
