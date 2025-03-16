@@ -10,57 +10,61 @@ interface EventCardProps {
 
 export function EventCard({ event, onDelete, showDelete }: EventCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <img 
-        src={event.image_url} 
-        alt={event.title} 
-        className="w-full h-48 object-cover"
-      />
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2">{event.title}</h3>
-        <div className="flex items-center gap-4 text-gray-600 mb-4">
-  <div className="flex items-center gap-2">
-    <Calendar size={16} />
-    <span>{new Date(event.date).toLocaleDateString()}</span>
-  </div>
-  <div className="flex items-center gap-2">
-    <Clock size={16} />
-    <span>{event.time}</span>
-  </div>
-  <div className="flex items-center gap-2">
-    <MapPin size={16} />
-    <span>{event.venue}</span>
-  </div>
-</div>
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 transition-transform hover:scale-105">
+    <img
+      src={event.image_url}
+      alt={event.title}
+      className="w-full h-52 object-cover"
+    />
+    <div className="p-6">
+      <h3 className="text-2xl font-bold text-gray-800 mb-3">{event.title}</h3>
 
-        <p className="text-gray-600 mb-4">{event.description}</p>
-        <div className="flex gap-4">
-          <a
-            href={event.form_link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-700 transition-colors"
-          >
-            Register <ExternalLink size={16} />
-          </a>
-          <a
-            href={event.whatsapp_link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-700 transition-colors"
-          >
-            Join Group <WhatsappIcon size={16} />
-          </a>
-          {showDelete && (
-            <button
-              onClick={() => onDelete?.(event.id)}
-              className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors ml-auto"
-            >
-              Delete
-            </button>
-          )}
+      {/* Date, Time, Venue Section */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between bg-gray-100 p-3 rounded-lg text-gray-700 mb-4">
+        <div className="flex items-center gap-2">
+          <Calendar size={18} className="text-blue-600" />
+          <span className="font-medium">{new Date(event.date).toLocaleDateString()}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <Clock size={18} className="text-purple-600" />
+          <span className="font-medium">{event.time}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <MapPin size={18} className="text-red-600" />
+          <span className="font-medium">{event.venue}</span>
         </div>
       </div>
+
+      <p className="text-gray-600 mb-4 text-sm leading-relaxed">{event.description}</p>
+
+      {/* Action Buttons */}
+      <div className="flex flex-wrap gap-4">
+        <a
+          href={event.form_link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md"
+        >
+          Register <ExternalLink size={18} />
+        </a>
+        <a
+          href={event.whatsapp_link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-5 py-2.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md"
+        >
+          Join Group <ExternalLink size={18} />
+        </a>
+        {showDelete && (
+          <button
+            onClick={() => onDelete?.(event.id)}
+            className="flex items-center gap-2 px-5 py-2.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors shadow-md ml-auto"
+          >
+            Delete
+          </button>
+        )}
+      </div>
     </div>
+  </div>
   );
 }
