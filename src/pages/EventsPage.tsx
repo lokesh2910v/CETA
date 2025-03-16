@@ -94,63 +94,69 @@ export function EventsPage() {
         ) : events.length === 0 ? (
           <div className="text-center py-12 text-gray-600">No events found.</div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-up">
-            {events.map((event) => (
-              <div key={event.id} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 w-full min-h-[400px]">
-
-                {/* Image Box with White Border */}
-                <div className="w-full h-[400px] bg-white border-4 border-white flex items-center justify-center overflow-hidden rounded-md">
-                  <img src={event.thumbnail_url} alt={event.title} className="w-full h-full object-contain rounded-md" />
-                </div>
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 animate-fade-up">
+          {events.map((event) => (
+            <div
+              key={event.id}
+              className="bg-white rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-105 border border-gray-200"
+            >
+              {/* Image Section */}
+              <div className="w-full h-[320px] bg-gray-100 flex items-center justify-center overflow-hidden rounded-t-xl">
+                <img
+                  src={event.thumbnail_url}
+                  alt={event.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+    
+              {/* Content Section */}
+              <div className="p-5">
                 {/* Title */}
-                <div className="text-gray-900 text-center py-1 font-semibold text-lg">
+                <h3 className="text-gray-900 text-center font-bold text-lg mb-3">
                   {event.title}
+                </h3>
+    
+                {/* Date & Venue */}
+                <div className="bg-gray-50 p-3 rounded-lg shadow-inner mb-4 text-gray-700">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Calendar className="w-5 h-5 text-blue-500" />
+                    <span className="text-sm font-medium">
+                      {format(new Date(event.date_time), "PP")}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="w-5 h-5 text-red-500" />
+                    <span className="text-sm font-medium">{event.venue}</span>
+                  </div>
                 </div>
-
-                {/* Details */}
-                <div className="pt-1 pl-4 pr-4">
-                  {/* Date & Venue Side by Side */}
-                  <div className="flex flex-wrap items-center justify-between text-gray-700 text-sm mb-2">
-                    <div className="flex items-center">
-                      <Calendar className="w-5 h-5 mr-1 text-blue-500" />
-                      {format(new Date(event.date_time), 'PPp')}
-                    </div>
-                    <div className="flex items-center">
-                      <MapPin className="w-5 h-5 mr-1 text-blue-500" />
-                      {event.venue}
-                    </div>
-                  </div>
-
-                  {/* Buttons */}
-                  <div className="flex flex-wrap gap-2 pt-2 pb-5 w-full">
-                    {event.registration_form_url && (
-                      <a
-                        href={event.registration_form_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 bg-blue-600 text-white text-sm px-3 py-2 rounded-md text-center hover:bg-blue-700 transition"
-                      >
-                        Register
-                      </a>
-                    )}
-                    {event.whatsapp_group_url && (
-                      <a
-                        href={event.whatsapp_group_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 bg-green-600 text-white text-sm px-3 py-2 rounded-md text-center hover:bg-green-700 transition"
-                      >
-                        Join Group
-                      </a>
-                    )}
-                  </div>
-
-
+    
+                {/* Buttons */}
+                <div className="flex flex-wrap gap-3">
+                  {event.registration_form_url && (
+                    <a
+                      href={event.registration_form_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
+                    >
+                      Register <ExternalLink size={16} />
+                    </a>
+                  )}
+                  {event.whatsapp_group_url && (
+                    <a
+                      href={event.whatsapp_group_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition"
+                    >
+                      Join Group <ExternalLink size={16} />
+                    </a>
+                  )}
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
         )}
 
       </div>
