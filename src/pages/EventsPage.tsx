@@ -54,7 +54,7 @@ export function EventsPage() {
     {/* Hero Section */}
 <div className="relative w-full h-[600px] flex items-center justify-center bg-cover bg-center" 
   style={{ backgroundImage: "url('/images/eventpage.jpg')" }}>
-  <div className="absolute inset-0 bg-black/50"></div> {/* Overlay */}
+  <div className="absolute inset-0 bg-black/70"></div> {/* Overlay */}
   <div className="relative text-center text-white flex flex-col items-center">
     <h1 className="text-4xl font-bold">Discover & Participate in Exciting Events</h1>
     <p className="mt-2 text-lg">Explore a variety of events and make the most of your experience!</p>

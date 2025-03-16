@@ -31,7 +31,7 @@ export function HomePage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}>
-        <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+        <div className="absolute inset-0 bg-black opacity-65 z-0"></div>
         {/* Logo Centered */}
         <motion.img
   src="/images/mainlogo.jpg"
