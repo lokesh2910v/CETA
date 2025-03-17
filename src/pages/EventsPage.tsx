@@ -115,28 +115,28 @@ export function EventsPage() {
           <div className="flex flex-wrap justify-between items-center mb-3 text-sm">
             
             {/* Date */}
-            <div className="flex gap-1 items-center font-medium text-blue-600">
-              <Calendar className="w-5 h-5" />
+            <div className="flex gap-1 items-center font-normal">
+              <Calendar className="w-5 h-5 text-blue-600" />
               {format(new Date(event.date_time), 'PP')}
             </div>
             
             {/* Venue */}
-            <div className="flex gap-1 items-center font-medium text-red-500">
-              <MapPin className="w-5 h-5" />
+            <div className="flex gap-1 items-center font-normal">
+              <MapPin className="w-5 h-5 text-red-500" />
               {event.venue}
             </div>
           </div>
 
           {/* Time & Organizer */}
           <div className="flex flex-wrap justify-between text-sm">
-            <div className="flex gap-1 items-center font-medium text-purple-600">
-              <Clock className="w-5 h-5" />
+            <div className="flex gap-1 items-center font-normal">
+              <Clock className="w-5 h-5 text-purple-600" />
               {event.st_time && event.end_time
                 ? `${format(new Date(`1970-01-01T${event.st_time}`), 'hh:mm a')} - ${format(new Date(`1970-01-01T${event.end_time}`), 'hh:mm a')}`
                 : 'Time Not Available'}
             </div>
-            <div className="flex gap-1 items-center font-medium text-green-600">
-              <User className="w-5 h-5" />
+            <div className="flex gap-1 items-center font-normal">
+              <User className="w-5 h-5 text-green-600" />
               {event.organiser}
             </div>
           </div>
