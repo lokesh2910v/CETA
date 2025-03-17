@@ -94,7 +94,7 @@ export function TeamPage() {
               </h3>
     
               {/* Role */}
-              <p className="mb-6 text-sm text-center text-gray-600 sm:text-base transition-opacity duration-300 group-hover:opacity-0">
+              <p className="mb-6 text-sm text-center text-gray-600 transition-opacity duration-300 sm:text-base group-hover:opacity-0">
                 {member.role}
               </p>
     
