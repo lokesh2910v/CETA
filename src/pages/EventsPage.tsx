@@ -116,13 +116,13 @@ export function EventsPage() {
             
             {/* Date */}
             <div className="flex gap-1 items-center font-normal">
-              <Calendar className="w-5 h-5 text-blue-600" />
+              <Calendar className="w-5 h-5 text-blue-600 animate-ping" />
               {format(new Date(event.date_time), 'PP')}
             </div>
             
             {/* Venue */}
             <div className="flex gap-1 items-center font-normal">
-              <MapPin className="w-5 h-5 text-red-500" />
+              <MapPin className="w-5 h-5 text-red-500 animate-ping" />
               {event.venue}
             </div>
           </div>
@@ -130,13 +130,13 @@ export function EventsPage() {
           {/* Time & Organizer */}
           <div className="flex flex-wrap justify-between text-sm">
             <div className="flex gap-1 items-center font-normal">
-              <Clock className="w-5 h-5 text-purple-600" />
+              <Clock className="w-5 h-5 text-purple-600 animate-ping" />
               {event.st_time && event.end_time
                 ? `${format(new Date(`1970-01-01T${event.st_time}`), 'hh:mm a')} - ${format(new Date(`1970-01-01T${event.end_time}`), 'hh:mm a')}`
                 : 'Time Not Available'}
             </div>
             <div className="flex gap-1 items-center font-normal">
-              <User className="w-5 h-5 text-green-600" />
+              <User className="w-5 h-5 text-green-600 animate-ping" />
               {event.organiser}
             </div>
           </div>
@@ -151,7 +151,7 @@ export function EventsPage() {
               rel="noopener noreferrer"
               className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg shadow-md transition-all hover:from-blue-600 hover:to-blue-800"
             >
-              <ClipboardList className="w-5 h-5" /> Register
+              <ClipboardList className="w-5 h-5 animate-ping" /> Register
             </a>
           )}
           {event.whatsapp_group_url && (
@@ -161,7 +161,7 @@ export function EventsPage() {
               rel="noopener noreferrer"
               className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-green-500 to-green-700 rounded-lg shadow-md transition-all hover:from-green-600 hover:to-green-800"
             >
-              <MessageCircle className="w-5 h-5" /> Join Group
+              <MessageCircle className="w-5 h-5 animate-ping" /> Join Group
             </a>
           )}
         </div>
