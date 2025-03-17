@@ -117,13 +117,13 @@ export function EventsPage() {
             
             {/* Date */}
             <div className="flex gap-1 items-center font-normal">
-              <Calendar className="w-5 h-5 text-purple-500 animate-pulse" />
+              <Calendar className="w-5 h-5 text-blue-600 animate-pulse" />
               {format(new Date(event.date_time), 'PP')}
             </div>
             
             {/* Venue */}
             <div className="flex gap-1 items-center font-normal">
-              <MapPin className="w-5 h-5 text-purple-500 animate-pulse" />
+              <MapPin className="w-5 h-5 text-blue-600 animate-pulse" />
               {event.venue}
             </div>
           </div>
@@ -131,13 +131,13 @@ export function EventsPage() {
           {/* Time & Organizer */}
           <div className="flex flex-wrap justify-between text-sm">
             <div className="flex gap-1 items-center font-normal">
-              <Clock className="w-5 h-5 text-purple-500 animate-pulse" />
+              <Clock className="w-5 h-5 text-blue-600 animate-pulse" />
               {event.st_time && event.end_time
                 ? `${format(new Date(`1970-01-01T${event.st_time}`), 'hh:mm a')} - ${format(new Date(`1970-01-01T${event.end_time}`), 'hh:mm a')}`
                 : 'Time Not Available'}
             </div>
             <div className="flex gap-1 items-center font-normal">
-              <User className="w-5 h-5 text-purple-500 animate-pulse" />
+              <User className="w-5 h-5 text-blue-600 animate-pulse" />
               {event.organiser}
             </div>
           </div>
@@ -152,7 +152,7 @@ export function EventsPage() {
               rel="noopener noreferrer"
               className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg shadow-md transition-all hover:from-blue-600 hover:to-blue-800"
             >
-               Register <FaExternalLinkAlt className="w-5 h-5 animate-pulse" />
+               Register <FaExternalLinkAlt className="w-3 h-3 animate-pulse" />
             </a>
           )}
           {event.whatsapp_group_url && (
@@ -162,7 +162,7 @@ export function EventsPage() {
               rel="noopener noreferrer"
               className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-green-500 to-green-700 rounded-lg shadow-md transition-all hover:from-green-600 hover:to-green-800"
             >
-               Join Group <FaWhatsapp className="w-5 h-5 animate-pulse" />
+               Join Group <FaWhatsapp className="w-4 h-4 animate-pulse" />
             </a>
           )}
         </div>
