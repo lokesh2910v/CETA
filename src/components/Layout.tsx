@@ -148,15 +148,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div>
             <h4 className="text-xl font-semibold text-gray-900 mb-5">Follow Us</h4>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition duration-300 ease-in-out">
+              {/* <a href="#" className="text-gray-600 hover:text-blue-600 transition duration-300 ease-in-out">
                 <Facebook className="h-7 w-7" />
-              </a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition duration-300 ease-in-out">
+              </a> */}
+              <a href="https://www.instagram.com/ceta.cse.mbu?igsh=MXE5YmY5cnFieGVuMA==" className="text-gray-600 hover:text-blue-600 transition duration-300 ease-in-out">
                 <Instagram className="h-7 w-7" />
               </a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition duration-300 ease-in-out">
+              {/* <a href="#" className="text-gray-600 hover:text-blue-600 transition duration-300 ease-in-out">
                 <Twitter className="h-7 w-7" />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
