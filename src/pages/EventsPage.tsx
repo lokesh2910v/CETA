@@ -103,7 +103,7 @@ export function EventsPage() {
         
         {/* Image Box with White Border */}
         <div className="w-full h-[400px] bg-white border-4 border-gray-100 flex items-center justify-center overflow-hidden rounded-xl">
-          <img src={event.thumbnail_url} alt={event.title} className="w-full h-full rounded-md object-fit" />
+          <img src={event.thumbnail_url} alt={event.title} className="w-full h-full rounded-2xl object-fit" />
         </div>
 
         {/* Title */}
