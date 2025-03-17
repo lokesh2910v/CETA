@@ -138,10 +138,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 <MapPin className="h-5 w-5 text-gray-600" />Mohan Babu University,Tirupathi
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-gray-600" /> ceta@mbu.asia
+                <Mail className="h-5 w-5 text-gray-600" /> ceta.universe9@gmail.com
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-gray-600" /> (123) 456-7890
+                <Phone className="h-5 w-5 text-gray-600" /> +91 7330877839
               </li>
             </ul>
           </div>
