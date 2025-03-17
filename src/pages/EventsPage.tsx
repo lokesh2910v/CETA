@@ -58,24 +58,23 @@ export function EventsPage() {
     <div className="relative w-full h-[600px] flex items-center justify-center bg-cover bg-center" 
   style={{ backgroundImage: "url('/images/eventpage.jpg')" }}>
   <div className="absolute inset-0 bg-black/70"></div> {/* Overlay */}
-  <div className="relative text-center text-white flex flex-col items-center">
+  <div className="flex relative flex-col items-center text-center text-white">
     <h1 className="text-4xl font-bold">Discover & Participate in Exciting Events</h1>
     <p className="mt-2 text-lg">Explore a variety of events and make the most of your experience!</p>
     <button
       onClick={() => document.getElementById('events-section')?.scrollIntoView({ behavior: 'smooth' })}
-      className="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-lg font-semibold rounded-full flex items-center gap-2 
-      shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 animate-bounce"
+      className="flex gap-2 items-center px-8 py-3 mt-6 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full shadow-lg transition-all duration-300 animate-bounce hover:shadow-2xl hover:scale-105"
     >
       Participate <ChevronDown className="w-5 h-5" />
     </button>
   </div>
 </div>
 
-<div id="events-section" className="px-6 md:px-12 lg:px-24 py-8">
+<div id="events-section" className="px-6 py-8 md:px-12 lg:px-24">
   {/* Category Selection */}
   <div className="mb-8 text-center">
-    <h2 className="text-3xl font-extrabold text-gray-900 mb-4 animate-fade-up">Events</h2>
-    <div className="flex flex-wrap justify-center gap-4">
+    <h2 className="mb-4 text-3xl font-extrabold text-gray-900 animate-fade-up">Events</h2>
+    <div className="flex flex-wrap gap-4 justify-center">
       {CATEGORIES.map((category) => (
         <button
           key={category}
@@ -93,86 +92,84 @@ export function EventsPage() {
   
   {/* Events Grid */}
   {loading ? (
-    <div className="text-center py-12 text-lg font-semibold">Loading events...</div>
-  ) : events.length === 0 ? (
-    <div className="text-center py-12 text-gray-600">No events found.</div>
-  ) : (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fade-up">
-      {events.map((event) => (
-        <div key={event.id} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 w-full min-h-[400px]">
+  <div className="py-12 text-lg font-semibold text-center">Loading events...</div>
+) : events.length === 0 ? (
+  <div className="py-12 text-center text-gray-600">No events found.</div>
+) : (
+  <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 animate-fade-up">
+    {events.map((event) => (
+      <div key={event.id} className="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all hover:scale-105 w-full min-h-[420px] border border-gray-200">
+        
+        {/* Image Box with White Border */}
+        <div className="w-full h-[400px] bg-white border-4 border-gray-100 flex items-center justify-center overflow-hidden rounded-xl">
+          <img src={event.thumbnail_url} alt={event.title} className="object-cover w-full h-full rounded-md" />
+        </div>
 
-          {/* Image Box with White Border */}
-          <div className="w-full h-[400px] bg-white border-4 border-white flex items-center justify-center overflow-hidden rounded-xl">
-            <img src={event.thumbnail_url} alt={event.title} className="w-full h-full object-contain rounded-md" />
+        {/* Title */}
+        <div className="py-2 text-xl font-bold text-center text-gray-900">
+          {event.title}
+        </div>
+
+        {/* Details */}
+        <div className="px-5 pb-4 text-gray-700">
+          <div className="flex flex-wrap justify-between items-center mb-3 text-sm">
+            
+            {/* Date */}
+            <div className="flex gap-1 items-center font-medium text-blue-600">
+              <Calendar className="w-5 h-5" />
+              {format(new Date(event.date_time), 'PP')}
+            </div>
+            
+            {/* Venue */}
+            <div className="flex gap-1 items-center font-medium text-red-500">
+              <MapPin className="w-5 h-5" />
+              {event.venue}
+            </div>
           </div>
 
-          {/* Title */}
-          <div className="text-gray-900 text-center py-1 font-semibold text-lg">
-            {event.title}
-          </div>
-
-          {/* Details */}
-          <div className="pt-1 pl-4 pr-4">
-            {/* Date & Venue Side by Side */}
-            <div className="flex flex-wrap items-center justify-between text-gray-700 text-sm mb-2">
-              
-              {/* Date */}
-              <div className="flex items-center">
-                <Calendar className="w-5 h-5 mr-1 text-blue-500" />
-                {format(new Date(event.date_time), 'PP')}
-              </div>
-              
-              {/* Venue */}
-              <div className="flex items-center">
-                <MapPin className="w-5 h-5 mr-1 text-blue-500" />
-                Venue: {event.venue}
-              </div>
-
-              {/* Time */}
-              <div className="flex items-center pt-3">
-                <Clock className="w-5 h-5 mr-1 text-blue-500" />
-                {event.st_time && event.end_time
-                  ? `${format(new Date(`1970-01-01T${event.st_time}`), 'hh:mm a')} - 
-                     ${format(new Date(`1970-01-01T${event.end_time}`), 'hh:mm a')}`
-                  : 'Time Not Available'}
-              </div>
-
-              {/* Organizer */}
-              <div className="flex items-center pt-3">
-                <User className="w-5 h-5 mr-1 text-blue-500" />
-                {event.organiser}
-              </div>
+          {/* Time & Organizer */}
+          <div className="flex flex-wrap justify-between text-sm">
+            <div className="flex gap-1 items-center font-medium text-purple-600">
+              <Clock className="w-5 h-5" />
+              {event.st_time && event.end_time
+                ? `${format(new Date(`1970-01-01T${event.st_time}`), 'hh:mm a')} - ${format(new Date(`1970-01-01T${event.end_time}`), 'hh:mm a')}`
+                : 'Time Not Available'}
             </div>
-
-            {/* Buttons */}
-            <div className="flex flex-wrap gap-2 pt-2 pb-5 w-full">
-              {event.registration_form_url && (
-                <a
-                  href={event.registration_form_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 bg-blue-600 text-white text-sm px-3 py-2 rounded-md text-center flex items-center gap-2 hover:bg-blue-700 transition"
-                >
-                  <ClipboardList className="w-4 h-4" /> Register
-                </a>
-              )}
-              {event.whatsapp_group_url && (
-                <a
-                  href={event.whatsapp_group_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 bg-green-600 text-white text-sm px-3 py-2 rounded-md text-center flex items-center gap-2 hover:bg-green-700 transition"
-                >
-                  <MessageCircle className="w-4 h-4" /> Join Group
-                </a>
-              )}
+            <div className="flex gap-1 items-center font-medium text-green-600">
+              <User className="w-5 h-5" />
+              {event.organiser}
             </div>
-
           </div>
         </div>
-      ))}
-    </div>
-  )}
+
+        {/* Buttons */}
+        <div className="flex flex-wrap gap-3 justify-center px-5 pb-5 w-full">
+          {event.registration_form_url && (
+            <a
+              href={event.registration_form_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg shadow-md transition-all hover:from-blue-600 hover:to-blue-800"
+            >
+              <ClipboardList className="w-5 h-5" /> Register
+            </a>
+          )}
+          {event.whatsapp_group_url && (
+            <a
+              href={event.whatsapp_group_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-green-500 to-green-700 rounded-lg shadow-md transition-all hover:from-green-600 hover:to-green-800"
+            >
+              <MessageCircle className="w-5 h-5" /> Join Group
+            </a>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+)
+}
 </div>
     </Layout>
   );
