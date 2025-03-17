@@ -150,9 +150,9 @@ export function EventsPage() {
               href={event.registration_form_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg shadow-md transition-all hover:from-blue-600 hover:to-blue-800"
+              className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-md transition-all hover:from-blue-600 hover:to-blue-800"
             >
-               Register <FaExternalLinkAlt className="w-3 h-3 animate-pulse" />
+               Register <FaExternalLinkAlt className="w-4 h-4 animate-pulse" />
             </a>
           )}
           {event.whatsapp_group_url && (
@@ -162,7 +162,7 @@ export function EventsPage() {
               rel="noopener noreferrer"
               className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-green-500 to-green-700 rounded-lg shadow-md transition-all hover:from-green-600 hover:to-green-800"
             >
-               Join Group <FaWhatsapp className="w-4 h-4 animate-pulse" />
+               Join Group <FaWhatsapp className="w-5 h-5 animate-pulse" />
             </a>
           )}
         </div>
