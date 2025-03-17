@@ -10,6 +10,9 @@ type Event = {
   thumbnail_url: string;
   date_time: string;
   venue: string;
+  st_time:string;
+  organiser:string;
+  end_time:string
   registration_form_url: string | null;
   whatsapp_group_url: string | null;
 };
@@ -204,6 +207,14 @@ export function AdminPage() {
                   className="px-4 py-2 border rounded-lg"
                   required
                 />
+                <input
+                  type="text"
+                  placeholder="organiser"
+                  value={formData.organiser|| ''}
+                  onChange={(e) => setFormData({ ...formData, organiser: e.target.value })}
+                  className="px-4 py-2 border rounded-lg"
+                  required
+                />
                 <select
                   value={formData.category || ''}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
@@ -231,6 +242,22 @@ export function AdminPage() {
                   className="px-4 py-2 border rounded-lg"
                   required
                 />
+              <input
+  type="time"
+  value={formData.st_time || ''}
+  onChange={(e) => setFormData({ ...formData, st_time: e.target.value })}
+  className="px-4 py-2 border rounded-lg"
+  required
+/>
+
+<input
+  type="time"
+  value={formData.end_time || ''}
+  onChange={(e) => setFormData({ ...formData, end_time: e.target.value })}
+  className="px-4 py-2 border rounded-lg"
+  required
+/>
+
                 <input
                   type="text"
                   placeholder="Venue"
@@ -363,9 +390,13 @@ export function AdminPage() {
                   {activeSection === 'events' && (
                     <>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Title</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">organiser</th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Category</th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date & Time</th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Venue</th>
+               
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Start Time</th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">end Time</th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
                     </>
                   )}
@@ -391,11 +422,14 @@ export function AdminPage() {
                 {activeSection === 'events' && events.map((event) => (
                   <tr key={event.id}>
                     <td className="px-6 py-4 whitespace-nowrap">{event.title}</td>
+                    <td className="px-6 py-4 whitespace-nowrap">{event.organiser}</td>
                     <td className="px-6 py-4 whitespace-nowrap">{event.category}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {new Date(event.date_time).toLocaleString()}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">{event.venue}</td>
+                    <td className="px-6 py-4 whitespace-nowrap">{event.st_time}</td>
+                    <td className="px-6 py-4 whitespace-nowrap">{event.end_time}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <button
                         onClick={() => handleEdit(event)}
