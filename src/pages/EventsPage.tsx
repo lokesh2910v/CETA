@@ -102,7 +102,7 @@ export function EventsPage() {
         <div key={event.id} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105 w-full min-h-[400px]">
 
           {/* Image Box with White Border */}
-          <div className="w-full h-[400px] bg-white border-4 border-white flex items-center justify-center overflow-hidden rounded-md">
+          <div className="w-full h-[400px] bg-white border-4 border-white flex items-center justify-center overflow-hidden rounded-xl">
             <img src={event.thumbnail_url} alt={event.title} className="w-full h-full object-contain rounded-md" />
           </div>
 

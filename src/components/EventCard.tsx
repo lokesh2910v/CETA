@@ -10,7 +10,7 @@ interface EventCardProps {
 
 export function EventCard({ event, onDelete, showDelete }: EventCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200 transition-transform hover:scale-105">
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 transition-transform hover:scale-105">
     <img
       src={event.image_url}
       alt={event.title}
