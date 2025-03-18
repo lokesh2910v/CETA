@@ -145,7 +145,7 @@ export function HomePage() {
 
 <div className="overflow-hidden p-5 mx-auto mb-5 max-w-sm text-center bg-white rounded-2xl shadow-2xl transition duration-300 transform hover:scale-105 hover:shadow-xl">
 <img className="object-cover w-full h-52 rounded-2xl" src="/images/2.png" alt="Event Image"/>
-  <h2 className="text-2xl font-bold text-orange-400">YUVARANG 2K25</h2>
+  <h2 className="font-serif text-2xl text-orange-400 fon-bold">Events Registerations</h2>
   <a
               href="/events"
               target="_blank"
