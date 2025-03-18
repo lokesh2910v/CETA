@@ -26,33 +26,41 @@ export function HomePage() {
     <Layout>
       {/* Hero Section */}
       <motion.div 
-        className="relative w-full h-screen bg-blue-600 bg-[url('/images/cetahome.jpg')] bg-cover bg-center text-white flex flex-col items-center justify-center"
+  className="flex relative flex-col justify-center items-center w-full h-screen text-white"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1 }}
+>
+  {/* Desktop Background */}
+  <div className="absolute inset-0 hidden sm:block bg-[url('https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/mainlogo.jpg')] bg-cover bg-center"></div>
 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}>
-        <div className="absolute inset-0 bg-black opacity-65 z-0"></div>
-        {/* Logo Centered */}
-        <motion.img
-  src="https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/mainlogo.jpg"
-  alt="Club Logo"
-  className="w-48 h-48 mb-6 object-cover rounded-full shadow-lg"
-  initial={{ scale: 0 }}
-  animate={{ scale: 1.2 }}
-  whileHover={{ scale: 1.3 }}
-  transition={{ duration: 0.8 }}
-/>
+  {/* Mobile Background */}
+  <div className="absolute inset-0 sm:hidden bg-[url('/images/20250318_175220.png')] bg-cover bg-center"></div>
 
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 z-10">Welcome to CETA</h1>
-        <p className="text-xl md:text-2xl max-w-3xl text-center mx-auto z-10">
-          Empowering students to innovate, create, and lead in the world of technology.
-        </p>
+  {/* Overlay */}
+  <div className="absolute inset-0 z-0 bg-black opacity-65"></div>
 
-        <div className="mt-6 text-3xl md:text-4xl font-semibold z-10">
-          <span ref={typedRef}></span>
-        </div>
-       
-      </motion.div>
+  {/* Logo Centered */}
+  <motion.img
+    src="https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/mainlogo.jpg"
+    alt="Club Logo"
+    className="object-cover mb-6 w-48 h-48 rounded-full shadow-lg"
+    initial={{ scale: 0 }}
+    animate={{ scale: 1.2 }}
+    whileHover={{ scale: 1.3 }}
+    transition={{ duration: 0.8 }}
+  />
+
+  <h1 className="z-10 mb-6 text-4xl font-bold md:text-6xl">Welcome to CETA</h1>
+  <p className="z-10 mx-auto max-w-3xl text-xl text-center md:text-2xl">
+    Empowering students to innovate, create, and lead in the world of technology.
+  </p>
+
+  <div className="z-10 mt-6 text-3xl font-semibold md:text-4xl">
+    <span ref={typedRef}></span>
+  </div>
+</motion.div>
+
 
       {/* Features Section */}
       <motion.div 
@@ -61,24 +69,24 @@ export function HomePage() {
   whileInView={{ scale: 1, opacity: 1 }}
   transition={{ duration: 1, ease: "easeOut" }}>
 
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
     
     <motion.div 
       className="text-center"
       initial={{ scale: 0.5, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}>
-      <h2 className="text-3xl font-bold text-gray-900 mb-16">
+      <h2 className="mb-16 text-3xl font-bold text-gray-900">
         Grow, Learn & Connect with CETA
       </h2>
     </motion.div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
       {[
-        { icon: <BookOpen className="h-8 w-8" />, title: "Workshops", description: "Technical workshops to enhance your skills." },
-        { icon: <Users className="h-8 w-8" />, title: "Networking", description: "Connect with like-minded tech enthusiasts." },
-        { icon: <Calendar className="h-8 w-8" />, title: "Events", description: "Exciting tech events and competitions." },
-        { icon: <Trophy className="h-8 w-8" />, title: "Projects", description: "Hands-on experience with real-world projects." }
+        { icon: <BookOpen className="w-8 h-8" />, title: "Workshops", description: "Technical workshops to enhance your skills." },
+        { icon: <Users className="w-8 h-8" />, title: "Networking", description: "Connect with like-minded tech enthusiasts." },
+        { icon: <Calendar className="w-8 h-8" />, title: "Events", description: "Exciting tech events and competitions." },
+        { icon: <Trophy className="w-8 h-8" />, title: "Projects", description: "Hands-on experience with real-world projects." }
       ].map((item, index) => (
         <motion.div 
           key={index} 
@@ -102,17 +110,17 @@ export function HomePage() {
   whileInView={{ scale: 1, opacity: 1 }}
   transition={{ duration: 1, ease: "easeOut" }}>
   
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
     
     <motion.div 
       className="text-center"
       initial={{ scale: 0.5, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}>
-      <h2 className="text-3xl font-bold text-gray-900 mb-16">CETA CLUBS</h2>
+      <h2 className="mb-16 text-3xl font-bold text-gray-900">CETA CLUBS</h2>
     </motion.div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4 justify-center">
+    <div className="grid grid-cols-1 gap-6 justify-center px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {[  
         { image: "https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/technova.jpg", title: "Technova", description: "A club focused on technology and innovation." },  
         { image: "https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/brainmasters.jpg", title: "Brain Masters", description: "A club for logical reasoning and coding competitions." },  
@@ -139,15 +147,15 @@ export function HomePage() {
   initial={{ opacity: 0, scale: 0.85 }}
   whileInView={{ opacity: 1, scale: 1 }}
   transition={{ duration: 1.2, ease: "anticipate" }}>
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+  <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div className="items-center lg:grid lg:grid-cols-2 lg:gap-16">
       
       {/* Text Section */}
       <motion.div 
         initial={{ opacity: 0, x: -60 }} 
         whileInView={{ opacity: 1, x: 0 }} 
         transition={{ duration: 1.5, ease: "easeInOut" }}>
-        <h2 className="text-4xl font-bold text-gray-900 mb-6">
+        <h2 className="mb-6 text-4xl font-bold text-gray-900">
           About Our Club
         </h2>
         <div className="prose prose-lg">
@@ -172,7 +180,7 @@ export function HomePage() {
         <img
           src="https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/mainlogo.jpg"
           alt="Team Collaboration"
-          className="rounded-lg shadow-xl p-5"
+          className="p-5 rounded-lg shadow-xl"
         />
       </motion.div>
     </div>
@@ -185,10 +193,10 @@ export function HomePage() {
 
 function FeatureCard1({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <motion.div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-lg"
+    <motion.div className="flex flex-col items-center p-6 text-center bg-white rounded-lg shadow-lg"
       whileHover={{ scale: 1.05 }}>
-      <div className="text-blue-600 mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+      <div className="mb-4 text-blue-600">{icon}</div>
+      <h3 className="mb-2 text-xl font-semibold text-gray-900">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </motion.div>
   );
@@ -196,12 +204,12 @@ function FeatureCard1({ icon, title, description }: { icon: React.ReactNode; tit
 
 function FeatureCard({ image, title, description }: { image: string; title: string; description: string }) {
   return (
-    <motion.div className="flex flex-col items-center bg-white shadow-lg rounded-lg overflow-hidden w-72"
+    <motion.div className="flex overflow-hidden flex-col items-center w-72 bg-white rounded-lg shadow-lg"
       whileHover={{ scale: 1.05 }}>
-      <img src={image} alt={title} className="w-50 h-60 object-cover" />
+      <img src={image} alt={title} className="object-cover h-60 w-50" />
       <div className="p-5 text-center">
         <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
-        <p className="text-gray-600 mt-2">{description}</p>
+        <p className="mt-2 text-gray-600">{description}</p>
       </div>
     </motion.div>
   );
