@@ -143,7 +143,7 @@ export function HomePage() {
 
 
 <div className="overflow-hidden p-5 mx-auto max-w-sm text-center bg-white rounded-2xl shadow-2xl transition duration-300 transform hover:scale-105 hover:shadow-xl">
-<img className="object-cover w-full h-40 rounded-t-2xl" src="/images/2.png" alt="Event Image">
+<img className="object-cover w-full h-40 rounded-t-2xl" src="/images/2.png" alt="Event Image"/>
   <h2 className="text-2xl font-bold bg-gradient-to-r from-red-400 to-amber-300">YUVARANG 2K25 <br/> Event Registration</h2>
   <a href="/events" className="block px-3 py-1 mt-4 text-sm text-center text-white bg-blue-600 rounded-lg transition duration-300 hover:bg-blue-700">Register Now</a>
 </div>
