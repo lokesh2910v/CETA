@@ -3,6 +3,7 @@ import { Layout } from '../components/Layout';
 import { BookOpen, Users, Calendar, Trophy } from 'lucide-react';
 import Typed from 'typed.js';
 import { motion } from 'framer-motion';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 export function HomePage() {
   const typedRef = useRef(null);
@@ -145,8 +146,14 @@ export function HomePage() {
 <div className="overflow-hidden p-5 mx-auto mb-5 max-w-sm text-center bg-white rounded-2xl shadow-2xl transition duration-300 transform hover:scale-105 hover:shadow-xl">
 <img className="object-cover w-full h-52 rounded-2xl" src="/images/2.png" alt="Event Image"/>
   <h2 className="text-2xl font-bold text-orange-400">YUVARANG 2K25</h2>
-  <a href="/events" class="block justify-center items-center px-3 py-1 mt-2 ml-28 w-28 text-sm text-center text-white bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg shadow-md transition duration-300 align-center hover:from-blue-600 hover:to-indigo-700 hover:shadow-lg">Register Now</a>
-</div>
+  <a
+              href="/events"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-violet-500 to-sky-300 rounded-lg shadow-md transition-all hover:from-blue-600 hover:to-blue-800"
+            >
+               Register Now <FaExternalLinkAlt className="w-4 h-4 animate-pulse" />
+            </a></div>
 
 
 <motion.div 
