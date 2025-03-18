@@ -142,6 +142,12 @@ export function HomePage() {
 </motion.div>
 
 
+<div className="overflow-hidden p-5 mx-auto max-w-sm text-center bg-white rounded-2xl shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-xl">
+  <h2 className="text-2xl font-bold text-gray-800">Event Registration</h2>
+  <a href="./pages/EventsPage" className="block px-4 py-2 mt-4 text-center text-white bg-blue-600 rounded-xl transition duration-300 hover:bg-blue-700">Register Now</a>
+</div>
+
+
 <motion.div 
   className="py-24 bg-gray-50"
   initial={{ opacity: 0, scale: 0.85 }}
