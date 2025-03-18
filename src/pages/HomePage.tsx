@@ -44,7 +44,7 @@ export function HomePage() {
   <motion.img
     src="https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/mainlogo.jpg"
     alt="Club Logo"
-    className="object-cover mb-6 w-48 h-48 rounded-full shadow-lg"
+    className="object-cover mb-6 w-48 h-48 rounded-full shadow-lg animate-pulse"
     initial={{ scale: 0 }}
     animate={{ scale: 1.2 }}
     whileHover={{ scale: 1.3 }}
