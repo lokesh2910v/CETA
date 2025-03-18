@@ -32,7 +32,7 @@ export function HomePage() {
   transition={{ duration: 1 }}
 >
   {/* Desktop Background */}
-  <div className="absolute inset-0 hidden sm:block bg-[url('https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/mainlogo.jpg')] bg-cover bg-center"></div>
+  <div className="absolute inset-0 hidden sm:block bg-[url('/images/cetahome.jpg')] bg-cover bg-center"></div>
 
   {/* Mobile Background */}
   <div className="absolute inset-0 sm:hidden bg-[url('/images/20250318_175220.png')] bg-cover bg-center"></div>
