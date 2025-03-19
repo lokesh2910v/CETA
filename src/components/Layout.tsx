@@ -51,7 +51,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
                       location.pathname === item.href
                         ? "border-b-2 border-blue-500 text-gray-900"
-                        : "text-gray-500 hover:border-b-2 hover:border-gray-300 hover:text-gray-700"
+                        : "text-white hover:border-b-2 hover:border-white hover:text-white"
                     }`}
                   >
                     <Icon className="mr-2 w-5 h-5" />
