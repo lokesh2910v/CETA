@@ -57,7 +57,7 @@ export function EventsPage() {
     <Layout>
     {/* Hero Section */}
     <div
-  className="relative w-full h-[600px] flex items-center justify-center bg-cover bg-center 
+  className="relative w-full h-[900px] flex items-center justify-center bg-cover bg-center 
   bg-[url('/images/project_20250319_1115221-01.png')] md:bg-[url('/images/eventpage.jpg')]"
 >
   <div className="absolute inset-0 bg-black/70"></div> {/* Overlay */}
