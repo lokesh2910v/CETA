@@ -56,8 +56,10 @@ export function EventsPage() {
   return (
     <Layout>
     {/* Hero Section */}
-    <div className="relative w-full h-[600px] flex items-center justify-center bg-cover bg-center" 
-  style={{ backgroundImage: "url('/images/eventpage.jpg')" }}>
+    <div
+  className="relative w-full h-[600px] flex items-center justify-center bg-cover bg-center 
+  bg-[url('/images/project_20250319_1115221-01.png')] md:bg-[url('/images/eventpage.jpg')]"
+>
   <div className="absolute inset-0 bg-black/70"></div> {/* Overlay */}
   <div className="flex relative flex-col items-center text-center text-white">
     <h1 className="text-4xl font-bold">Discover & Participate in Exciting Events</h1>
@@ -70,6 +72,7 @@ export function EventsPage() {
     </button>
   </div>
 </div>
+
 
 <div id="events-section" className="px-6 py-8 md:px-12 lg:px-24">
   {/* Category Selection */}

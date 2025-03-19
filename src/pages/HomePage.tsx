@@ -10,7 +10,7 @@ export function HomePage() {
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["T.H.E Club ", "Technova", "Pixel Fusion", "Sports and Culturals", "Brain Masters"],
+      strings: ["T.H.E CLUB ", "Technova", "Pixel Fusion", "Sports and Culturals", "Brain Masters"],
       typeSpeed: 100,
       backSpeed: 50,
       backDelay: 1000,
