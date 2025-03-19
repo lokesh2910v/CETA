@@ -50,7 +50,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     to={item.href}
                     className={`inline-flex items-center px-1 pt-1 text-sm font-medium ${
                       location.pathname === item.href
-                        ? "border-b-2 border-blue-500 text-gray-900"
+                        ? "border-b-2 border-blue-500 text-white"
                         : "text-white hover:border-b-2 hover:border-white hover:text-white"
                     }`}
                   >
