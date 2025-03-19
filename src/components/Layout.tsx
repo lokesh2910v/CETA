@@ -65,9 +65,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="sm:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-gray-700 focus:outline-none"
+                className="text-white focus:outline-none"
               >
-                {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
           </div>
