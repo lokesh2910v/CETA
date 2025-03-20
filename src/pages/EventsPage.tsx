@@ -156,7 +156,8 @@ export function EventsPage() {
               rel="noopener noreferrer"
               className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-violet-500 to-sky-300 rounded-lg shadow-md transition-all hover:from-blue-600 hover:to-blue-800"
             >
-               Registerations Closed <FaExternalLinkAlt className="w-4 h-4 animate-pulse" />
+               Registerations Closed 
+               {/* <FaExternalLinkAlt className="w-4 h-4 animate-pulse" /> */}
             </a>
           )}
           {event.whatsapp_group_url && (
