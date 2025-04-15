@@ -3,7 +3,7 @@ import { Layout } from '../components/Layout';
 import { BookOpen, Users, Calendar, Trophy } from 'lucide-react';
 import Typed from 'typed.js';
 import { motion } from 'framer-motion';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+// import { FaExternalLinkAlt } from 'react-icons/fa';
 
 export function HomePage() {
   const typedRef = useRef(null);
