@@ -33,10 +33,10 @@ export function HomePage() {
   transition={{ duration: 1 }}
 >
   {/* Desktop Background */}
-  <div className="absolute inset-0 hidden sm:block bg-[url('/images/cetahome.jpg')] bg-cover bg-center"></div>
+  <div className="absolute inset-0 hidden sm:block bg-[url(]'/images/cetahome.jpg')] bg-cover bg-center"></div>
 
   {/* Mobile Background */}
-  <div className="absolute inset-0 sm:hidden bg-[url('/images/20250318_175220.png')] bg-cover bg-center"></div>
+  <div className="absolute inset-0 sm:hidden bg-[url(]'/images/20250318_175220.png')] bg-cover bg-center"></div>
 
   {/* Overlay */}
   <div className="absolute inset-0 z-0 bg-black opacity-65"></div>
@@ -121,7 +121,7 @@ export function HomePage() {
       <h2 className="mb-16 text-3xl font-bold text-gray-900">CETA CLUBS</h2>
     </motion.div>
 
-    <div className="grid grid-cols-1 gap-6 justify-center px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-6 justify-center flex px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {[  
         { image: "https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/technova.jpg", title: "Technova", description: "A club focused on technology and innovation." },  
         { image: "https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/brainmasters.jpg", title: "Brain Masters", description: "A club for logical reasoning and coding competitions." },  
@@ -143,7 +143,7 @@ export function HomePage() {
 </motion.div>
 
 
-<div className="overflow-hidden p-5 mx-auto mb-5 max-w-sm text-center bg-white rounded-2xl shadow-2xl transition duration-300 transform hover:scale-105 hover:shadow-xl">
+{/* <div className="overflow-hidden p-5 mx-auto mb-5 max-w-sm text-center bg-white rounded-2xl shadow-2xl transition duration-300 transform hover:scale-105 hover:shadow-xl">
 <img className="object-cover w-full h-52 rounded-2xl" src="/images/2.png" alt="Event Image"/>
   <h2 className="font-serif text-2xl text-orange-400 fon-bold">Events Registerations</h2>
   <a
@@ -153,7 +153,7 @@ export function HomePage() {
               className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-violet-500 to-sky-300 rounded-lg shadow-md transition-all hover:from-blue-600 hover:to-blue-800"
             >
                Register Now <FaExternalLinkAlt className="w-4 h-4 animate-pulse" />
-            </a></div>
+            </a></div> */}
 
 
 <motion.div 
