@@ -33,10 +33,10 @@ export function HomePage() {
   transition={{ duration: 1 }}
 >
   {/* Desktop Background */}
-  <div className="absolute inset-0 hidden sm:block bg-[url(]'/images/cetahome.jpg')] bg-cover bg-center"></div>
+  <div className="absolute inset-0 hidden sm:block bg-[url('/images/cetahome.jpg')] bg-cover bg-center"></div>
 
   {/* Mobile Background */}
-  <div className="absolute inset-0 sm:hidden bg-[url(]'/images/20250318_175220.png')] bg-cover bg-center"></div>
+  <div className="absolute inset-0 sm:hidden bg-[url('/images/20250318_175220.png')] bg-cover bg-center"></div>
 
   {/* Overlay */}
   <div className="absolute inset-0 z-0 bg-black opacity-65"></div>
@@ -52,7 +52,7 @@ export function HomePage() {
     transition={{ duration: 0.8 }}
   />
 
-  <h1 className="z-10 mb-6 text-4xl font-bold md:text-6xl"> to CETA</h1>
+  <h1 className="z-10 mb-6 text-4xl font-bold md:text-6xl">Welcome to CETA</h1>
   <p className="z-10 mx-auto max-w-3xl text-xl text-center md:text-2xl">
     Empowering students to innovate, create, and lead in the world of technology.
   </p>
@@ -121,7 +121,7 @@ export function HomePage() {
       <h2 className="mb-16 text-3xl font-bold text-gray-900">CETA CLUBS</h2>
     </motion.div>
 
-    <div className="grid grid-cols-1 gap-6 justify-center flex px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-6 justify-center px-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {[  
         { image: "https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/technova.jpg", title: "Technova", description: "A club focused on technology and innovation." },  
         { image: "https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/brainmasters.jpg", title: "Brain Masters", description: "A club for logical reasoning and coding competitions." },  
@@ -220,7 +220,7 @@ function FeatureCard({ image, title, description }: { image: string; title: stri
   return (
     <motion.div className="flex overflow-hidden flex-col items-center w-72 bg-white rounded-lg shadow-lg"
       whileHover={{ scale: 1.05 }}>
-      <img src={image} alt={title} className="object-cover h-60 w-50" />
+      <img src={image} alt={title} className="object-cover h-60 w-50" width="200" height="200" loading="lazy" />
       <div className="p-5 text-center">
         <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
         <p className="mt-2 text-gray-600">{description}</p>
