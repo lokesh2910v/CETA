@@ -168,19 +168,40 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": ["Organization", "LocalBusiness"],
           "description": "CETA - MBU's premier technical association fostering innovation through workshops, events, and hands-on learning in computer engineering",
-          "keywords": "CETA, MB University, technical association, computer engineering, workshops, tech events",
-          "name": "CETA - MBU",
+          "keywords": "CETA MBU, Computer Engineering Association Tirupati, Technical Workshops Andhra Pradesh, Mohan Babu University Tech Events",
+          "name": "CETA - Computer Engineering Technical Association",
           "url": "https://ceta-mbu.in/",
           "logo": "https://ceta-mbu.in/images/mainlogo.jpg",
           "sameAs": ["https://www.instagram.com/ceta.cse.mbu"],
+          "priceRange": "Free",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Mohan Babu University",
+            "addressLocality": "Tirupati",
+            "addressRegion": "Andhra Pradesh",
+            "postalCode": "517102",
+            "addressCountry": "India"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 13.6288,
+            "longitude": 79.4192
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          },
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+91 7330877839",
             "contactType": "Technical Support",
             "email": "ceta.universe9@gmail.com",
-            "areaServed": "India"
+            "areaServed": "India",
+            "availableLanguage": ["English", "Telugu"]
           }
         })
       }} />
