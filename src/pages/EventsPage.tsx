@@ -58,9 +58,64 @@ export function EventsPage() {
     <Layout>
       <Helmet>
         <title>CETA Events - Technical Workshops & Competitions | MB University</title>
-        <meta name="description" content="Explore CETA's upcoming technical events, workshops and competitions at Mohan Babu University. Register now for hands-on learning experiences in computer engineering." />
+        <meta name="description" content="CETA MBU technical events calendar: Join hands-on workshops, competitions in AI/ML, web development & more at Mohan Babu University. Register now for Technova, Pixel Fusion & other engineering events." />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
         <meta property="og:title" content="CETA Technical Events & Workshops | MBU" />
+        <meta property="og:description" content="Join CETA's technical workshops and competitions at Mohan Babu University. Explore events in AI/ML, web development, coding challenges & more." />
         <meta property="og:image" content="/images/event-og.jpg" />
+        <meta property="og:url" content="https://ceta-mbu.com/events" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="CETA Technical Events @ MBU" />
+        <meta name="twitter:description" content="Participate in CETA's engineering workshops & competitions. Enhance your skills in web development, AI/ML & more at Mohan Babu University." />
+        <meta name="twitter:image" content="/images/event-og.jpg" />
+
+        {/* Schema.org Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EventSeries",
+            "name": "CETA Technical Events",
+            "description": "Annual technical workshop and competition series organized by Computer Engineering Technical Association",
+            "url": "https://ceta-mbu.com/events",
+            "image": "/images/event-og.jpg",
+            "organizer": {
+              "@type": "Organization",
+              "name": "Computer Engineering Technical Association (CETA)",
+              "url": "https://ceta-mbu.com"
+            },
+            "events": events.map(event => ({
+              "@type": "Event",
+              "name": event.title,
+              "startDate": event.date_time,
+              "endDate": event.end_time,
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "eventStatus": "https://schema.org/EventScheduled",
+              "location": {
+                "@type": "Place",
+                "name": event.venue,
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Tirupati",
+                  "addressRegion": "AP",
+                  "postalCode": "517102",
+                  "streetAddress": "Mohan Babu University"
+                }
+              },
+              "image": event.thumbnail_url?.replace(/\.(jpg|png)$/, '.webp') || '',
+              "offers": {
+                "@type": "Offer",
+                "url": event.registration_form_url,
+                "price": "0",
+                "priceCurrency": "INR",
+                "availability": "https://schema.org/InStock"
+              }
+            }))
+          })}
+        </script>
       </Helmet>
     {/* Hero Section */}
     <div

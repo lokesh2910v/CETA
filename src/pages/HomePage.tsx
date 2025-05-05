@@ -52,9 +52,12 @@ export function HomePage() {
 
   {/* Logo Centered */}
   <motion.img
-    src="https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/mainlogo.jpg"
-    alt="Club Logo"
+    src="https://ik.imagekit.io/pstron/CETA/MAIN%20LOGOS/mainlogo.webp"
+    alt="CETA MBU Computer Engineering Club Logo"
     className="object-cover mb-6 w-48 h-48 rounded-full shadow-lg animate-pulse"
+    loading="lazy"
+    width="192"
+    height="192"
     initial={{ scale: 0 }}
     animate={{ scale: 1.2 }}
     whileHover={{ scale: 1.3 }}
@@ -229,7 +232,15 @@ function FeatureCard({ image, title, description }: { image: string; title: stri
   return (
     <motion.div className="flex overflow-hidden flex-col items-center w-72 bg-white rounded-lg shadow-lg"
       whileHover={{ scale: 1.05 }}>
-      <img src={image} alt={title} className="object-cover h-60 w-50" width="200" height="200" loading="lazy" />
+      <img
+  src={image.replace(/\.(jpg|png)$/, '.webp')}
+  alt={`${title} Club - CETA MBU`}
+  className="object-cover h-60 w-50"
+  width="200"
+  height="200"
+  loading="lazy"
+  decoding="async"
+/>
       <div className="p-5 text-center">
         <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
         <p className="mt-2 text-gray-600">{description}</p>
