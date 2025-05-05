@@ -5,8 +5,6 @@ import Typed from 'typed.js';
 import { motion } from 'framer-motion';
 // import { FaExternalLinkAlt } from 'react-icons/fa';
 
-import { Helmet } from 'react-helmet-async';
-
 export function HomePage() {
   const typedRef = useRef(null);
 
@@ -27,13 +25,6 @@ export function HomePage() {
 
   return (
     <Layout>
-      <Helmet>
-        <title>CETA MBU - Computer Engineering Technical Association | Official Website</title>
-        <meta name="description" content="Official website of CETA MBU - Premier technical association fostering innovation in computer engineering through workshops, hackathons and industry collaborations." />
-        <meta name="keywords" content="CETA MBU, computer engineering, technical workshops, coding competitions, MB University" />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://ceta-mbu.in/" />
-      </Helmet>
       {/* Hero Section */}
       <motion.div 
   className="flex relative flex-col justify-center items-center w-full h-screen text-white"
