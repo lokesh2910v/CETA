@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Layout } from '../components/Layout';
 import { supabase } from '../lib/supabase';
 import { Linkedin } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 
 type TeamMember = {
   id: string;
@@ -45,47 +44,6 @@ export function TeamPage() {
 
   return (
     <Layout>
-      <Helmet>
-        <title>CETA Team - Faculty & Student Leadership | MB University</title>
-        <meta name="description" content="Meet CETA's leadership team at Mohan Babu University - Faculty advisors, core team members and club organizers driving technical education initiatives for engineering students." />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="CETA Technical Association Team | MBU" />
-        <meta property="og:description" content="Explore CETA's faculty and student leadership team organizing technical workshops and competitions at Mohan Babu University." />
-        <meta property="og:image" content="/images/team-og.webp" />
-        <meta property="og:type" content="website" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="CETA Technical Team @ MBU" />
-        <meta name="twitter:description" content="Faculty and student leaders managing technical education programs at Mohan Babu University's Computer Engineering Association." />
-        
-        {/* Schema.org Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "CollegeOrUniversity",
-            "name": "Mohan Babu University",
-            "department": {
-              "@type": "Organization",
-              "name": "Computer Engineering Technical Association (CETA)",
-              "description": "Student-led technical organization organizing workshops and competitions",
-              "url": "https://ceta-mbu.com/team",
-              "member": members.map(member => ({
-                "@type": "Person",
-                "name": member.name,
-                "jobTitle": member.role,
-                "memberOf": {
-                  "@type": "Organization",
-                  "name": member.category
-                },
-                "image": member.image_url?.replace(/\.(jpg|png)$/, '.webp') || '',
-                "url": member.linkedin_url
-              }))
-            }
-          })}
-        </script>
-      </Helmet>
       <div className="px-4 py-8 md:px-8 lg:px-24">
         {/* Category Selection */}
         <div className="mb-6 text-center">

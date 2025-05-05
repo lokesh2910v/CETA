@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { Helmet } from "react-helmet-async";
-
-const SITE_URL = 'https://ceta-mbu.com';
 import { Link, useLocation } from "react-router-dom";
 import {
   Users,
@@ -168,52 +165,46 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
     </footer>
-      <Helmet>
-        <html lang="en" />
-        <link rel="canonical" href={`${SITE_URL}${window.location.pathname}`} />
-        <meta name="robots" content="index,follow" />
-        <meta name="revisit-after" content="7 days" />
-        <meta name="keywords" content="CETA Tirupati, MBU engineering club, computer workshops Tirupati, tech events Andhra Pradesh, university technical association, coding competitions Andhra Pradesh" />
-        <meta property="og:title" content="CETA MBU - Premier Engineering Club in Tirupati" />
-        <meta property="og:description" content="Official technical association of Mohan Babu University offering workshops, hackathons and tech events in Tirupati, Andhra Pradesh" />
-        <meta property="og:image" content={`${SITE_URL}/images/mainlogo.webp`} />
-        <meta name="twitter:card" content="summary_large_image" />
-        
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "CETA MBU - Computer Engineering Club",
-            "image": `${SITE_URL}/images/mainlogo.webp`,
-            "priceRange": "Free",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Mohan Babu University Campus",
-              "addressLocality": "Tirupati",
-              "addressRegion": "Andhra Pradesh",
-              "postalCode": "517102",
-              "addressCountry": "IN"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 13.6288,
-              "longitude": 79.4192
-            },
-          
-            "telephone": "+91-7330877839",
-            "openingHoursSpecification": {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-              "opens": "09:00",
-              "closes": "17:00"
-            },
-            "sameAs": [
-              "https://www.instagram.com/ceta.cse.mbu",
-              "https://www.facebook.com/cetambu"
-            ]
-          })}
-        </script>
-      </Helmet>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": ["Organization", "LocalBusiness"],
+          "description": "CETA - MBU's premier technical association fostering innovation through workshops, events, and hands-on learning in computer engineering",
+          "keywords": "CETA MBU, Computer Engineering Association Tirupati, Technical Workshops Andhra Pradesh, Mohan Babu University Tech Events",
+          "name": "CETA - Computer Engineering Technical Association",
+          "url": "https://ceta-mbu.in/",
+          "logo": "https://ceta-mbu.in/images/mainlogo.jpg",
+          "sameAs": ["https://www.instagram.com/ceta.cse.mbu"],
+          "priceRange": "Free",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Mohan Babu University",
+            "addressLocality": "Tirupati",
+            "addressRegion": "Andhra Pradesh",
+            "postalCode": "517102",
+            "addressCountry": "India"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 13.6288,
+            "longitude": 79.4192
+          },
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91 7330877839",
+            "contactType": "Technical Support",
+            "email": "ceta.universe9@gmail.com",
+            "areaServed": "India",
+            "availableLanguage": ["English", "Telugu"]
+          }
+        })
+      }} />
     </div>
   );
 }
