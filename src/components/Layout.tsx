@@ -6,9 +6,7 @@ import {
   Image as ImageIcon,
   Home,
   Settings,
-  Facebook,
   Instagram,
-  Twitter,
   Mail,
   MapPin,
   Phone,
@@ -36,7 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link to="/" className="text-2xl font-bold text-white">
-                CETA
+                CETA - Computer Engineering Technical Association
               </Link>
             </div>
 
@@ -171,6 +169,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
+          "description": "CETA - MBU's premier technical association fostering innovation through workshops, events, and hands-on learning in computer engineering",
+          "keywords": "CETA, MB University, technical association, computer engineering, workshops, tech events",
           "name": "CETA - MBU",
           "url": "https://ceta-mbu.in/",
           "logo": "https://ceta-mbu.in/images/mainlogo.jpg",

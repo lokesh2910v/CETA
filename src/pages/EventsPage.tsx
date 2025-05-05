@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Layout } from '../components/Layout';
 import { supabase } from '../lib/supabase';
 import { Calendar, MapPin, User, ChevronDown ,Clock} from 'lucide-react';
@@ -55,10 +56,16 @@ export function EventsPage() {
 
   return (
     <Layout>
+      <Helmet>
+        <title>CETA Events - Technical Workshops & Competitions | MB University</title>
+        <meta name="description" content="Explore CETA's upcoming technical events, workshops and competitions at Mohan Babu University. Register now for hands-on learning experiences in computer engineering." />
+        <meta property="og:title" content="CETA Technical Events & Workshops | MBU" />
+        <meta property="og:image" content="/images/event-og.jpg" />
+      </Helmet>
     {/* Hero Section */}
     <div
   className="relative w-full h-[800px] flex items-center justify-center bg-cover bg-center 
-  bg-[url('/images/project_20250319_1115221-01.png')] md:bg-[url('/images/eventpage.jpg')]"
+  bg-[url('/images/project_20250319_1115221-01.webp')] md:bg-[url('/images/eventpage.webp')]"
 >
   <div className="absolute inset-0 bg-black/70"></div> 
   <div className="flex relative flex-col items-center text-center text-white">
@@ -106,7 +113,15 @@ export function EventsPage() {
         
         {/* Image Box with White Border */}
         <div className="w-full h-[400px] bg-white border-4 border-gray-100 flex items-center justify-center overflow-hidden rounded-xl">
-          <img src={event.thumbnail_url} alt={event.title} className="w-full h-full rounded-2xl object-fit" />
+          <img 
+  src={event.thumbnail_url?.replace(/\.(jpg|png)$/, '.webp') || ''}
+  alt={`${event.title} technical workshop - CETA MBU`}
+  className="w-full h-full rounded-2xl object-fit"
+  loading="lazy"
+  width={600}
+  height={400}
+  decoding="async"
+/>
         </div>
 
         {/* Title */}
@@ -150,14 +165,13 @@ export function EventsPage() {
         <div className="flex flex-wrap gap-3 justify-center px-5 pb-5 w-full">
           {event.registration_form_url && (
             <a
-              href="/"
-              // {event.registration_form_url}
+              href={event.registration_form_url || '#'}
               target="_blank"
               rel="noopener noreferrer"
               className="flex gap-2 justify-center items-center px-4 py-2 w-full font-semibold text-center text-white bg-gradient-to-r from-violet-500 to-sky-300 rounded-lg shadow-md transition-all hover:from-blue-600 hover:to-blue-800"
             >
-               Registerations Closed 
-               {/* <FaExternalLinkAlt className="w-4 h-4 animate-pulse" /> */}
+               Register Now 
+              <FaExternalLinkAlt className="w-4 h-4 animate-pulse" />
             </a>
           )}
           {event.whatsapp_group_url && (
