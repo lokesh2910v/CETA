@@ -52,7 +52,7 @@ export function HomePage() {
     transition={{ duration: 0.8 }}
   />
 
-  <h1 className="z-10 mb-6 text-4xl font-bold md:text-6xl">Welcome to CETA</h1>
+  <h1 className="z-10 mb-6 text-4xl font-bold md:text-6xl"> to CETA</h1>
   <p className="z-10 mx-auto max-w-3xl text-xl text-center md:text-2xl">
     Empowering students to innovate, create, and lead in the world of technology.
   </p>
