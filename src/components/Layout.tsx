@@ -66,6 +66,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-white focus:outline-none"
+                aria-label="Mobile menu"
+                aria-expanded={isOpen}
               >
                 {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -165,7 +167,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
     </footer>
-
+      <script type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "CETA - MBU",
+          "url": "https://ceta-mbu.in/",
+          "logo": "https://ceta-mbu.in/images/mainlogo.jpg",
+          "sameAs": ["https://www.instagram.com/ceta.cse.mbu"],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91 7330877839",
+            "contactType": "Technical Support",
+            "email": "ceta.universe9@gmail.com",
+            "areaServed": "India"
+          }
+        })
+      }} />
     </div>
   );
 }
